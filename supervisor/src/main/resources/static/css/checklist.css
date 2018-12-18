@@ -1,0 +1,48 @@
+
+table#checkListTable {
+  width: 100%; 
+  background-color: #f1f1c1;
+  border-spacing: 5px;
+}
+
+table#checkListTable tr:nth-child(even) {
+  background-color: #eee;
+}
+
+table#checkListTable tr:nth-child(odd) {
+  background-color: #fff;
+}
+
+table#checkListTable th {
+  color: white;
+  background-color: black;
+}
+
+.checkListTableHeader {
+	font-weight: bold;
+}
+
+.checkListTableFooter {
+	font-weight: bold;
+}
+
+.checkListTablePlaceColumnClass {
+	width: 15%;
+}
+.checkListTableScoreColumnClass {
+	width: 15%;
+}
+.checkListTableCommentsColumnClass {
+	width: 70%;
+}
+.checkListTableCommentsCellClass {
+	width: 100%;
+}
+
+.contentWidthClass {
+	width: 5%;
+}
+
+.noWrapClass {
+	white-space:nowrap;
+}

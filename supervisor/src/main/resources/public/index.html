@@ -1,0 +1,31 @@
+
+<html>
+<head>
+<title>FBM Supervisor Checklist</title>
+
+<link rel="stylesheet" href="css/checklist.css">
+<script type="text/javascript" src="js/checklist/checklist.js"> </script>
+
+</head>
+
+
+<body onload="loadPage()" >
+
+	<form action="sw" method="post">
+
+		<label for="clientTypeId">Client Type</label> <select
+			id="clientTypeId" onchange="changeCheckList()">
+		</select>
+
+		<table id="checkListTable">
+		</table>
+		 
+		<div class="button">
+			<button type="button" onclick="saveCheckList()">Submit Checklist</button>
+		</div>
+
+	</form>
+
+</body>
+
+</html>

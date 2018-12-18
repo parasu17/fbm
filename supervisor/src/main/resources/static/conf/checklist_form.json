@@ -1,0 +1,1324 @@
+{
+	"checkList": [
+		{
+			"checklistName": "Office",
+			"heading": "Supervision / Inspection Report",
+			"clientType": "",
+			"clientName": "",
+			"timeIn": "100",
+			"table": {
+				"rows": [
+					{
+						"labelName": "Entrance Doors",
+						"scoreId": "entranceDoorsScoreId",
+						"commentId": "entranceDoorsCommentsId"
+					},
+					{
+						"labelName": "Check fingerprints",
+						"scoreId": "checkFingerPrintsScoreId",
+						"commentId": "checkFingerPrintsCommentsId"
+					},
+					{
+						"labelName": "Check Cobwebs",
+						"scoreId": "CheckCobwebsScoreId",
+						"commentId": "CheckCobwebsCommentsId"
+					},
+					{
+						"labelName": "Baseboards,vents and ledges",
+						"scoreId": "BvlId",
+						"commentId": "BvlId"
+					},
+					{
+						"labelName": "Door entrance mats and carpets",
+						"scoreId": "EntrancematCarpetId",
+						"commentId": "EntrancematCarpetId"
+					},
+					{
+						"labelName": "RECEPTION",
+						"scoreId": "ReceptionId",
+						"commentId": "ReceptionId"
+					},
+					{
+						"labelName": "Wall Fixtures",
+						"scoreId": "WallfixturesId",
+						"commentId": "WallfixturesId"
+					},
+					{
+						"labelName": "Tabletops and under desk",
+						"scoreId": "TabletopsanddeskId",
+						"commentId": "TabletopsanddeskId"
+					},
+					{
+						"labelName": "Monitors and telephone",
+						"scoreId": "MonitorsandtelephoneId",
+						"commentId": "MonitorsandtelephoneId"
+					},
+					{
+						"labelName": "Dust in windows and screens",
+						"scoreId": "windowscreenId",
+						"commentId": "windowscreenId"
+					},
+					{
+						"labelName": "Garbage bins inside and out",
+						"scoreId": "GarbagebinsId",
+						"commentId": "GarbagebinsId"
+					},
+					{
+						"labelName": "Floor",
+						"scoreId": "FloorScoreId",
+						"commentId": "FloorCommentsId"
+					},
+					{
+						"labelName": "OFFICE",
+						"scoreId": "OfficeScoreId",
+						"commentId": "OfficeCommentsId"
+					},
+					{
+						"labelName": "Check cobwebs",
+						"scoreId": "checkcobwebScoreId",
+						"commentId": "checkcobwebCommentsId"
+					},
+					{
+						"labelName": "Table tops and chairs",
+						"scoreId": "TabletopschairsScoreId",
+						"commentId": "TabletopschairsCommentsId"
+					},
+					{
+						"labelName": "Moniotor and telephone",
+						"scoreId": "MonitorandphoneScoreId",
+						"commentId": "MonitorandphoneCommentsId"
+					},
+					{
+						"labelName": "Cupboards and Shelves",
+						"scoreId": "CupboardsandshelvesScoreId",
+						"commentId": "CupboardsandshelvesCommentsId"
+					},
+					{
+						"labelName": "Corner,ledges and baseboards",
+						"scoreId": "Corner,ledges and baseboardsScoreId",
+						"commentId": "CornerledgeandbaseboardsCommentsId"
+					},
+					{
+						"labelName": "Floors and carpet",
+						"scoreId": "FloorcarpetScoreId",
+						"commentId": "FloorcarpetCommentsId"
+					},
+					{
+						"labelName": "Garbage bins inside and out",
+						"scoreId": "GbinScoreId",
+						"commentId": "GbinCommentsId"
+					},
+					{
+						"labelName": "Glass Partitions and Fingerprints",
+						"scoreId": "GPFScoreId",
+						"commentId": "GPFCommentsId"
+					},
+					{
+						"labelName": "Shredder and Recycle bin",
+						"scoreId": "ShredderScoreId",
+						"commentId": "ShredderCommentsId"
+					},
+					{
+						"labelName": "SwitchPlates and light fixtures",
+						"scoreId": "SPLFScoreId",
+						"commentId": "SPLFCommentsId"
+					},
+					{
+						"labelName": "Inner doors and handles",
+						"scoreId": "InnScoreId",
+						"commentId": "InnCommentsId"
+					},
+					{
+						"labelName": "Replace liners in bins",
+						"scoreId": "ReplaceScoreId",
+						"commentId": "ReplaceCommentsId"
+					},
+					{
+						"labelName": "KITCHENETTE/LUNCH ROOM",
+						"scoreId": "KitchenLunchScoreId",
+						"commentId": "KitchenLunchCommentsId"
+					},
+					{
+						"labelName": "Check cobwebs",
+						"scoreId": "checkScoreId",
+						"commentId": "checkCommentsId"
+					},
+					{
+						"labelName": "Floor",
+						"scoreId": "FloorssScoreId",
+						"commentId": "FloorssCommentsId"
+					},
+					{
+						"labelName": "Baseboard,ledges and corners",
+						"scoreId": "BBScoreId",
+						"commentId": "BBCommentsId"
+					},
+					{
+						"labelName": "CheckAppliances",
+						"scoreId": "CheckApplianceScoreId",
+						"commentId": "checkApplianceCommentsId"
+					},
+					{
+						"labelName": "Under the Equipment",
+						"scoreId": "UnderEqScoreId",
+						"commentId": "UndeEqCommentsId"
+					},
+					{
+						"labelName": "Sinks and taps",
+						"scoreId": "SinksScoreId",
+						"commentId": "SinksCommentsId"
+					},
+					{
+						"labelName": "Garbage bins inside and out",
+						"scoreId": "GBScoreId",
+						"commentId": "GBCommentsId"
+					},
+					{
+						"labelName": "Replaceliners",
+						"scoreId": "ReplacelinersScoreId",
+						"commentId": "ReplacelinersCommentsId"
+					},
+					{
+						"labelName": "RESTROOMS",
+						"scoreId": "RestroomScoreId",
+						"commentId": "RestroomCommentsId"
+					},
+					{
+						"labelName": "Toilet seat,base,inside and outside",
+						"scoreId": "ToiletseatScoreId",
+						"commentId": "ToiletseatCommentsId"
+					},
+					{
+						"labelName": "Toilet tissue,Paper and hand soap",
+						"scoreId": "ToilettissueScoreId",
+						"commentId": "ToilettissueCommentsId"
+					},
+					{
+						"labelName": "Countertop and mirrors",
+						"scoreId": "CounterScoreId",
+						"commentId": "CounterCommentsId"
+					},
+					{
+						"labelName": "Sink,Faucets and Dispenser",
+						"scoreId": "SinkScoreId",
+						"commentId": "sinkCommentsId"
+					},
+					{
+						"labelName": "Partitions and Floors",
+						"scoreId": "PartitionScoreId",
+						"commentId": "PartitionCommentsId"
+					},
+					{
+						"labelName": "Urinals",
+						"scoreId": "UrinalscoreId",
+						"commentId": "UrinalCommentsId"
+					},
+					{
+						"labelName": "Garbage bins inside and out",
+						"scoreId": "GarScoreId",
+						"commentId": "GarCommentsId"
+					},
+					{
+						"labelName": "Air vents and corners",
+						"scoreId": "AirventsScoreId",
+						"commentId": "AirventsCommentsId"
+					},
+					{
+						"labelName": "Walls and Ceilings",
+						"scoreId": "wallScoreId",
+						"commentId": "wallCommentsId"
+					},
+					{
+						"labelName": "STAIRWELLS",
+						"scoreId": "STAIRScoreId",
+						"commentId": "STAIRCommentsId"
+					},
+					{
+						"labelName": "Steps",
+						"scoreId": "stepsScoreId",
+						"commentId": "stepsCommentsId"
+					},
+					{
+						"labelName": "Handrails",
+						"scoreId": "HandrailsScoreId",
+						"commentId": "HandrailsCommentsId"
+					},
+					{
+						"labelName": "JANITOR ROOM",
+						"scoreId": "JANIScoreId",
+						"commentId": "JANICommentsId"
+					},
+					{
+						"labelName": "Check Supplies",
+						"scoreId": "CheckSupplyScoreId",
+						"commentId": "CheckSupplyCommentsId"
+					},
+					{
+						"labelName": "Check Equipment ",
+						"scoreId": "CheckEqi",
+						"commentId": "CheckEqiCommentsId"
+					}
+				]
+			}
+		},
+		{
+			"checklistName": "Restaurant",
+			"heading": "Supervision / Inspection Report",
+			"clientType": "",
+			"clientName": "",
+			"timeIn": "100",
+			"table": {
+				"rows": [
+					{
+						"labelName": "Entrance Doors",
+						"scoreId": "entranceDoorsScoreId",
+						"commentId": "entranceDoorsCommentsId"
+					},
+					{
+						"labelName": "Check fingerprints",
+						"scoreId": "checkFingerPrintsScoreId",
+						"commentId": "checkFingerPrintsCommentsId"
+					},
+					{
+						"labelName": "Check Cobwebs",
+						"scoreId": "CheckCobwebsScoreId",
+						"commentId": "CheckCobwebsCommentsId"
+					},
+					{
+						"labelName": "Baseboards,vents and ledges",
+						"scoreId": "BvlId",
+						"commentId": "BvlId"
+					},
+					{
+						"labelName": "Door entrance mats and carpets",
+						"scoreId": "EntrancematCarpetId",
+						"commentId": "EntrancematCarpetId"
+					},
+					{
+						"labelName": "RECEPTION",
+						"scoreId": "ReceptionId",
+						"commentId": "ReceptionId"
+					},
+					{
+						"labelName": "Wall Fixtures",
+						"scoreId": "WallfixturesId",
+						"commentId": "WallfixturesId"
+					},
+					{
+						"labelName": "Tabletops and under desk",
+						"scoreId": "TabletopsanddeskId",
+						"commentId": "TabletopsanddeskId"
+					},
+					{
+						"labelName": "Monitors and telephone",
+						"scoreId": "MonitorsandtelephoneId",
+						"commentId": "MonitorsandtelephoneId"
+					},
+					{
+						"labelName": "Dust in windows and screens",
+						"scoreId": "windowscreenId",
+						"commentId": "windowscreenId"
+					},
+					{
+						"labelName": "Garbage bins inside and out",
+						"scoreId": "GarbagebinsId",
+						"commentId": "GarbagebinsId"
+					},
+					{
+						"labelName": "Floor",
+						"scoreId": "FloorScoreId",
+						"commentId": "FloorCommentsId"
+					},
+					{
+						"labelName": "DINING",
+						"scoreId": "diningScoreId",
+						"commentId": "diningCommentsId"
+					},
+					{
+						"labelName": "Under the tables and chairs",
+						"scoreId": "UndertablesScoreId",
+						"commentId": "UndertablesCommentsId"
+					},
+					{
+						"labelName": "Sweep and mop floors",
+						"scoreId": "SweepScoreId",
+						"commentId": "SweepCommentsId"
+					},
+					{
+						"labelName": "Vacuum all carpets",
+						"scoreId": "VacuumScoreId",
+						"commentId": "VacuumCommentsId"
+					},
+					{
+						"labelName": "Check cobwebs",
+						"scoreId": "CobwebScoreId",
+						"commentId": "CobwebCommentsId"
+					},
+					{
+						"labelName": "Corners,ledges and baseboards",
+						"scoreId": "CLBScoreId",
+						"commentId": "CLBCommentsId"
+					},
+					{
+						"labelName": "BAR",
+						"scoreId": "BARScoreId",
+						"commentId": "BARCommentsId"
+					},
+					{
+						"labelName": "Under the Equipments",
+						"scoreId": "UnderEScoreI",
+						"commentId": "UnderECommentsId"
+					},
+					{
+						"labelName": "Floor",
+						"scoreId": "FloorScoreId",
+						"commentId": "FloorCommentsId"
+					},
+					{
+						"labelName": "Garbage bins inside and out",
+						"scoreId": "GbScoreId",
+						"commentId": "GbCommentsId"
+					},
+					{
+						"labelName": "RESTROOMS",
+						"scoreId": "RestroomScoreId",
+						"commentId": "RestroomCommentsId"
+					},
+					{
+						"labelName": "Toilet seat,base,inside and outside",
+						"scoreId": "ToiletseatScoreId",
+						"commentId": "ToiletseatCommentsId"
+					},
+					{
+						"labelName": "Toilet tissue,Paper and hand soap",
+						"scoreId": "ToilettissueScoreId",
+						"commentId": "ToilettissueCommentsId"
+					},
+					{
+						"labelName": "Countertop and mirrors",
+						"scoreId": "CounterScoreId",
+						"commentId": "CounterCommentsId"
+					},
+					{
+						"labelName": "Sink,Faucets and Dispenser",
+						"scoreId": "SinkScoreId",
+						"commentId": "sinkCommentsId"
+					},
+					{
+						"labelName": "Partitions and Floors",
+						"scoreId": "PartitionScoreId",
+						"commentId": "PartitionCommentsId"
+					},
+					{
+						"labelName": "Urinals",
+						"scoreId": "UrinalscoreId",
+						"commentId": "UrinalCommentsId"
+					},
+					{
+						"labelName": "Garbage bins inside and out",
+						"scoreId": "GarScoreId",
+						"commentId": "GarCommentsId"
+					},
+					{
+						"labelName": "Air vents and corners",
+						"scoreId": "AirventsScoreId",
+						"commentId": "AirventsCommentsId"
+					},
+					{
+						"labelName": "Walls and Ceilings",
+						"scoreId": "wallScoreId",
+						"commentId": "wallCommentsId"
+					},
+					{
+						"labelName": "KITCHENETTE",
+						"scoreId": "KitchenScoreId",
+						"commentId": "KitchenCommentsId"
+					},
+					{
+						"labelName": "Check cobwebs",
+						"scoreId": "checkScoreId",
+						"commentId": "checkCommentsId"
+					},
+					{
+						"labelName": "Floor",
+						"scoreId": "FloorssScoreId",
+						"commentId": "FloorssCommentsId"
+					},
+					{
+						"labelName": "Baseboard,ledges and corners",
+						"scoreId": "BBScoreId",
+						"commentId": "BBCommentsId"
+					},
+					{
+						"labelName": "Check Backsplash",
+						"scoreId": "CheckBacksplachScoreId",
+						"commentId": "checkBacksplashCommentsId"
+					},
+					{
+						"labelName": "Under the Equipment",
+						"scoreId": "UnderEqScoreId",
+						"commentId": "UndeEqCommentsId"
+					},
+					{
+						"labelName": "Garbage bins inside and out",
+						"scoreId": "GBScoreId",
+						"commentId": "GBCommentsId"
+					},
+					{
+						"labelName": "Replaceliners",
+						"scoreId": "ReplacelinersScoreId",
+						"commentId": "ReplacelinersCommentsId"
+					},
+					{
+						"labelName": "GAMING AREA",
+						"scoreId": "GamingScoreId",
+						"commentId": "GamingScoreCommentsId"
+					},
+					{
+						"labelName": "Check dust on Equipments",
+						"scoreId": "checkDustScoreId",
+						"commentId": "CheckdustCommentsId"
+					},
+					{
+						"labelName": "Check seats and Couches",
+						"scoreId": "CouchesScoreId",
+						"commentId": "CouchesCommentsId"
+					},
+					{
+						"labelName": "Floors",
+						"scoreId": "FloorsScoreId",
+						"commentId": "floorsCommentsId"
+					},
+					{
+						"labelName": "Garbage and Recycling",
+						"scoreId": "GarbageScoreId",
+						"commentId": "GarbageCommentsId"
+					},
+					{
+						"labelName": "JANITOR ROOM",
+						"scoreId": "JANIScoreId",
+						"commentId": "JANICommentsId"
+					},
+					{
+						"labelName": "Check Supplies",
+						"scoreId": "CheckSupplyScoreId",
+						"commentId": "CheckSupplyCommentsId"
+					},
+					{
+						"labelName": "Check Equipment ",
+						"scoreId": "CheckEqi",
+						"commentId": "CheckEqiCommentsId"
+					}
+				]
+			}
+		},
+		{
+			"checklistName": "Auto_Dealership",
+			"heading": "Supervision / Inspection Report",
+			"clientType": "",
+			"clientName": "",
+			"timeIn": "100",
+			"table": {
+				"rows": [
+					{
+						"labelName": "Entrance Doors",
+						"scoreId": "entranceDoorsScoreId",
+						"commentId": "entranceDoorsCommentsId"
+					},
+					{
+						"labelName": "Check fingerprints",
+						"scoreId": "checkFingerPrintsScoreId",
+						"commentId": "checkFingerPrintsCommentsId"
+					},
+					{
+						"labelName": "Check Cobwebs",
+						"scoreId": "CheckCobwebsScoreId",
+						"commentId": "CheckCobwebsCommentsId"
+					},
+					{
+						"labelName": "Baseboards,vents and ledges",
+						"scoreId": "BvlId",
+						"commentId": "BvlId"
+					},
+					{
+						"labelName": "Door entrance mats and carpets",
+						"scoreId": "EntrancematCarpetId",
+						"commentId": "EntrancematCarpetId"
+					},
+					{
+						"labelName": "RECEPTION",
+						"scoreId": "ReceptionId",
+						"commentId": "ReceptionId"
+					},
+					{
+						"labelName": "Wall Fixtures",
+						"scoreId": "WallfixturesId",
+						"commentId": "WallfixturesId"
+					},
+					{
+						"labelName": "Tabletops and under desk",
+						"scoreId": "TabletopsanddeskId",
+						"commentId": "TabletopsanddeskId"
+					},
+					{
+						"labelName": "Monitors and telephone",
+						"scoreId": "MonitorsandtelephoneId",
+						"commentId": "MonitorsandtelephoneId"
+					},
+					{
+						"labelName": "Dust in windows and screens",
+						"scoreId": "windowscreenId",
+						"commentId": "windowscreenId"
+					},
+					{
+						"labelName": "Garbage bins inside and out",
+						"scoreId": "GarbagebinsId",
+						"commentId": "GarbagebinsId"
+					},
+					{
+						"labelName": "Floor",
+						"scoreId": "FloorScoreId",
+						"commentId": "FloorCommentsId"
+					},
+					{
+						"labelName": "OFFICE",
+						"scoreId": "OfficeScoreId",
+						"commentId": "OfficeCommentsId"
+					},
+					{
+						"labelName": "Check cobwebs",
+						"scoreId": "checkcobwebScoreId",
+						"commentId": "checkcobwebCommentsId"
+					},
+					{
+						"labelName": "Table tops and chairs",
+						"scoreId": "TabletopschairsScoreId",
+						"commentId": "TabletopschairsCommentsId"
+					},
+					{
+						"labelName": "Moniotor and telephone",
+						"scoreId": "MonitorandphoneScoreId",
+						"commentId": "MonitorandphoneCommentsId"
+					},
+					{
+						"labelName": "Cupboards and Shelves",
+						"scoreId": "CupboardsandshelvesScoreId",
+						"commentId": "CupboardsandshelvesCommentsId"
+					},
+					{
+						"labelName": "Corner,ledges and baseboards",
+						"scoreId": "Corner,ledges and baseboardsScoreId",
+						"commentId": "CornerledgeandbaseboardsCommentsId"
+					},
+					{
+						"labelName": "Floors and carpet",
+						"scoreId": "FloorcarpetScoreId",
+						"commentId": "FloorcarpetCommentsId"
+					},
+					{
+						"labelName": "Garbage bins inside and out",
+						"scoreId": "GbinScoreId",
+						"commentId": "GbinCommentsId"
+					},
+					{
+						"labelName": "Glass Partitions and Fingerprints",
+						"scoreId": "GPFScoreId",
+						"commentId": "GPFCommentsId"
+					},
+					{
+						"labelName": "Shredder and Recycle bin",
+						"scoreId": "ShredderScoreId",
+						"commentId": "ShredderCommentsId"
+					},
+					{
+						"labelName": "SwitchPlates and light fixtures",
+						"scoreId": "SPLFScoreId",
+						"commentId": "SPLFCommentsId"
+					},
+					{
+						"labelName": "Inner doors and handles",
+						"scoreId": "InnScoreId",
+						"commentId": "InnCommentsId"
+					},
+					{
+						"labelName": "Replace liners in bins",
+						"scoreId": "ReplaceScoreId",
+						"commentId": "ReplaceCommentsId"
+					},
+					{
+						"labelName": "KITCHENETTE/LUNCH ROOM",
+						"scoreId": "KitchenLunchScoreId",
+						"commentId": "KitchenLunchCommentsId"
+					},
+					{
+						"labelName": "Check cobwebs",
+						"scoreId": "checkScoreId",
+						"commentId": "checkCommentsId"
+					},
+					{
+						"labelName": "Floor",
+						"scoreId": "FloorssScoreId",
+						"commentId": "FloorssCommentsId"
+					},
+					{
+						"labelName": "Baseboard,ledges and corners",
+						"scoreId": "BBScoreId",
+						"commentId": "BBCommentsId"
+					},
+					{
+						"labelName": "CheckAppliances",
+						"scoreId": "CheckApplianceScoreId",
+						"commentId": "checkApplianceCommentsId"
+					},
+					{
+						"labelName": "Under the Equipment",
+						"scoreId": "UnderEqScoreId",
+						"commentId": "UndeEqCommentsId"
+					},
+					{
+						"labelName": "Sinks and taps",
+						"scoreId": "SinksScoreId",
+						"commentId": "SinksCommentsId"
+					},
+					{
+						"labelName": "Garbage bins inside and out",
+						"scoreId": "GBScoreId",
+						"commentId": "GBCommentsId"
+					},
+					{
+						"labelName": "Replaceliners",
+						"scoreId": "ReplacelinersScoreId",
+						"commentId": "ReplacelinersCommentsId"
+					},
+					{
+						"labelName": "RESTROOMS",
+						"scoreId": "RestroomScoreId",
+						"commentId": "RestroomCommentsId"
+					},
+					{
+						"labelName": "Toilet seat,base,inside and outside",
+						"scoreId": "ToiletseatScoreId",
+						"commentId": "ToiletseatCommentsId"
+					},
+					{
+						"labelName": "Toilet tissue,Paper and hand soap",
+						"scoreId": "ToilettissueScoreId",
+						"commentId": "ToilettissueCommentsId"
+					},
+					{
+						"labelName": "Countertop and mirrors",
+						"scoreId": "CounterScoreId",
+						"commentId": "CounterCommentsId"
+					},
+					{
+						"labelName": "Sink,Faucets and Dispenser",
+						"scoreId": "SinkScoreId",
+						"commentId": "sinkCommentsId"
+					},
+					{
+						"labelName": "Partitions and Floors",
+						"scoreId": "PartitionScoreId",
+						"commentId": "PartitionCommentsId"
+					},
+					{
+						"labelName": "Urinals",
+						"scoreId": "UrinalscoreId",
+						"commentId": "UrinalCommentsId"
+					},
+					{
+						"labelName": "Garbage bins inside and out",
+						"scoreId": "GarScoreId",
+						"commentId": "GarCommentsId"
+					},
+					{
+						"labelName": "Air vents and corners",
+						"scoreId": "AirventsScoreId",
+						"commentId": "AirventsCommentsId"
+					},
+					{
+						"labelName": "Walls and Ceilings",
+						"scoreId": "wallScoreId",
+						"commentId": "wallCommentsId"
+					},
+					{
+						"labelName": "STAIRWELLS",
+						"scoreId": "STAIRScoreId",
+						"commentId": "STAIRCommentsId"
+					},
+					{
+						"labelName": "Steps",
+						"scoreId": "stepsScoreId",
+						"commentId": "stepsCommentsId"
+					},
+					{
+						"labelName": "Handrails",
+						"scoreId": "HandrailsScoreId",
+						"commentId": "HandrailsCommentsId"
+					},
+					{
+						"labelName": "JANITOR ROOM",
+						"scoreId": "JANIScoreId",
+						"commentId": "JANICommentsId"
+					},
+					{
+						"labelName": "Check Supplies",
+						"scoreId": "CheckSupplyScoreId",
+						"commentId": "CheckSupplyCommentsId"
+					},
+					{
+						"labelName": "Check Equipment ",
+						"scoreId": "CheckEqi",
+						"commentId": "CheckEqiCommentsId"
+					}
+				]
+			}
+		},
+		{
+			"checklistName": "Restaurant",
+			"heading": "Supervision / Inspection Report",
+			"clientType": "",
+			"clientName": "",
+			"timeIn": "100",
+			"table": {
+				"rows": [
+					{
+						"labelName": "Entrance Doors",
+						"scoreId": "entranceDoorsScoreId",
+						"commentId": "entranceDoorsCommentsId"
+					},
+					{
+						"labelName": "Check fingerprints",
+						"scoreId": "checkFingerPrintsScoreId",
+						"commentId": "checkFingerPrintsCommentsId"
+					},
+					{
+						"labelName": "Check Cobwebs",
+						"scoreId": "CheckCobwebsScoreId",
+						"commentId": "CheckCobwebsCommentsId"
+					},
+					{
+						"labelName": "Baseboards,vents and ledges",
+						"scoreId": "BvlId",
+						"commentId": "BvlId"
+					},
+					{
+						"labelName": "Door entrance mats and carpets",
+						"scoreId": "EntrancematCarpetId",
+						"commentId": "EntrancematCarpetId"
+					},
+					{
+						"labelName": "RECEPTION",
+						"scoreId": "ReceptionId",
+						"commentId": "ReceptionId"
+					},
+					{
+						"labelName": "Wall Fixtures",
+						"scoreId": "WallfixturesId",
+						"commentId": "WallfixturesId"
+					},
+					{
+						"labelName": "Tabletops and under desk",
+						"scoreId": "TabletopsanddeskId",
+						"commentId": "TabletopsanddeskId"
+					},
+					{
+						"labelName": "Monitors and telephone",
+						"scoreId": "MonitorsandtelephoneId",
+						"commentId": "MonitorsandtelephoneId"
+					},
+					{
+						"labelName": "Dust in windows and screens",
+						"scoreId": "windowscreenId",
+						"commentId": "windowscreenId"
+					},
+					{
+						"labelName": "Garbage bins inside and out",
+						"scoreId": "GarbagebinsId",
+						"commentId": "GarbagebinsId"
+					},
+					{
+						"labelName": "Floor",
+						"scoreId": "FloorScoreId",
+						"commentId": "FloorCommentsId"
+					},
+					{
+						"labelName": "DINING",
+						"scoreId": "diningScoreId",
+						"commentId": "diningCommentsId"
+					},
+					{
+						"labelName": "Under the tables and chairs",
+						"scoreId": "UndertablesScoreId",
+						"commentId": "UndertablesCommentsId"
+					},
+					{
+						"labelName": "Sweep and mop floors",
+						"scoreId": "SweepScoreId",
+						"commentId": "SweepCommentsId"
+					},
+					{
+						"labelName": "Vacuum all carpets",
+						"scoreId": "VacuumScoreId",
+						"commentId": "VacuumCommentsId"
+					},
+					{
+						"labelName": "Check cobwebs",
+						"scoreId": "CobwebScoreId",
+						"commentId": "CobwebCommentsId"
+					},
+					{
+						"labelName": "Corners,ledges and baseboards",
+						"scoreId": "CLBScoreId",
+						"commentId": "CLBCommentsId"
+					},
+					{
+						"labelName": "BAR",
+						"scoreId": "BARScoreId",
+						"commentId": "BARCommentsId"
+					},
+					{
+						"labelName": "Under the Equipments",
+						"scoreId": "UnderEScoreI",
+						"commentId": "UnderECommentsId"
+					},
+					{
+						"labelName": "Floor",
+						"scoreId": "FloorScoreId",
+						"commentId": "FloorCommentsId"
+					},
+					{
+						"labelName": "Garbage bins inside and out",
+						"scoreId": "GbScoreId",
+						"commentId": "GbCommentsId"
+					},
+					{
+						"labelName": "RESTROOMS",
+						"scoreId": "RestroomScoreId",
+						"commentId": "RestroomCommentsId"
+					},
+					{
+						"labelName": "Toilet seat,base,inside and outside",
+						"scoreId": "ToiletseatScoreId",
+						"commentId": "ToiletseatCommentsId"
+					},
+					{
+						"labelName": "Toilet tissue,Paper and hand soap",
+						"scoreId": "ToilettissueScoreId",
+						"commentId": "ToilettissueCommentsId"
+					},
+					{
+						"labelName": "Countertop and mirrors",
+						"scoreId": "CounterScoreId",
+						"commentId": "CounterCommentsId"
+					},
+					{
+						"labelName": "Sink,Faucets and Dispenser",
+						"scoreId": "SinkScoreId",
+						"commentId": "sinkCommentsId"
+					},
+					{
+						"labelName": "Partitions and Floors",
+						"scoreId": "PartitionScoreId",
+						"commentId": "PartitionCommentsId"
+					},
+					{
+						"labelName": "Urinals",
+						"scoreId": "UrinalscoreId",
+						"commentId": "UrinalCommentsId"
+					},
+					{
+						"labelName": "Garbage bins inside and out",
+						"scoreId": "GarScoreId",
+						"commentId": "GarCommentsId"
+					},
+					{
+						"labelName": "Air vents and corners",
+						"scoreId": "AirventsScoreId",
+						"commentId": "AirventsCommentsId"
+					},
+					{
+						"labelName": "Walls and Ceilings",
+						"scoreId": "wallScoreId",
+						"commentId": "wallCommentsId"
+					},
+					{
+						"labelName": "KITCHENETTE",
+						"scoreId": "KitchenScoreId",
+						"commentId": "KitchenCommentsId"
+					},
+					{
+						"labelName": "Check cobwebs",
+						"scoreId": "checkScoreId",
+						"commentId": "checkCommentsId"
+					},
+					{
+						"labelName": "Floor",
+						"scoreId": "FloorssScoreId",
+						"commentId": "FloorssCommentsId"
+					},
+					{
+						"labelName": "Baseboard,ledges and corners",
+						"scoreId": "BBScoreId",
+						"commentId": "BBCommentsId"
+					},
+					{
+						"labelName": "Check Backsplash",
+						"scoreId": "CheckBacksplachScoreId",
+						"commentId": "checkBacksplashCommentsId"
+					},
+					{
+						"labelName": "Under the Equipment",
+						"scoreId": "UnderEqScoreId",
+						"commentId": "UndeEqCommentsId"
+					},
+					{
+						"labelName": "Garbage bins inside and out",
+						"scoreId": "GBScoreId",
+						"commentId": "GBCommentsId"
+					},
+					{
+						"labelName": "Replaceliners",
+						"scoreId": "ReplacelinersScoreId",
+						"commentId": "ReplacelinersCommentsId"
+					},
+					{
+						"labelName": "GAMING AREA",
+						"scoreId": "GamingScoreId",
+						"commentId": "GamingScoreCommentsId"
+					},
+					{
+						"labelName": "Check dust on Equipments",
+						"scoreId": "checkDustScoreId",
+						"commentId": "CheckdustCommentsId"
+					},
+					{
+						"labelName": "Check seats and Couches",
+						"scoreId": "CouchesScoreId",
+						"commentId": "CouchesCommentsId"
+					},
+					{
+						"labelName": "Floors",
+						"scoreId": "FloorsScoreId",
+						"commentId": "floorsCommentsId"
+					},
+					{
+						"labelName": "Garbage and Recycling",
+						"scoreId": "GarbageScoreId",
+						"commentId": "GarbageCommentsId"
+					},
+					{
+						"labelName": "JANITOR ROOM",
+						"scoreId": "JANIScoreId",
+						"commentId": "JANICommentsId"
+					},
+					{
+						"labelName": "Check Supplies",
+						"scoreId": "CheckSupplyScoreId",
+						"commentId": "CheckSupplyCommentsId"
+					},
+					{
+						"labelName": "Check Equipment ",
+						"scoreId": "CheckEqi",
+						"commentId": "CheckEqiCommentsId"
+					}
+				]
+			}
+		},
+		{
+			"checklistName": "Auto_Dealerships",
+			"heading": "Supervision / Inspection Report",
+			"clientType": "",
+			"clientName": "",
+			"timeIn": "100",
+			"table": {
+				"rows": [
+					{
+						"labelName": "Entrance glass doors",
+						"scoreId": "entranceDoorsScoreId",
+						"commentId": "entranceDoorsCommentsId"
+					},
+					{
+						"labelName": "Check fingerprints",
+						"scoreId": "checkFingerPrintsScoreId",
+						"commentId": "checkFingerPrintsCommentsId"
+					},
+					{
+						"labelName": "Check Cobwebs",
+						"scoreId": "CheckCobwebsScoreId",
+						"commentId": "CheckCobwebsCommentsId"
+					},
+					{
+						"labelName": "Baseboards,vents and ledges",
+						"scoreId": "BvlId",
+						"commentId": "BvlId"
+					},
+					{
+						"labelName": "Door entrance mats and carpets",
+						"scoreId": "EntrancematCarpetId",
+						"commentId": "EntrancematCarpetId"
+					},
+					{
+						"labelName": "Couches and lobby area",
+						"scoreId": "CouchesScoreId",
+						"commentId": "CouchesCommentsId"
+					},
+					{
+						"labelName": "Underneath Cars",
+						"scoreId": "UnderneathScoreId",
+						"commentId": "UnderneathCommentsId"
+					},
+					{
+						"labelName": "Tabletops and under desk",
+						"scoreId": "TabletopsanddeskId",
+						"commentId": "TabletopsanddeskId"
+					},
+					{
+						"labelName": "Monitors and telephone",
+						"scoreId": "MonitorsandtelephoneId",
+						"commentId": "MonitorsandtelephoneId"
+					},
+					{
+						"labelName": "Dust in windows and screens",
+						"scoreId": "windowscreenId",
+						"commentId": "windowscreenId"
+					},
+					{
+						"labelName": "Garbage bins inside and out",
+						"scoreId": "GarbagebinsId",
+						"commentId": "GarbagebinsId"
+					},
+					{
+						"labelName": "Floor",
+						"scoreId": "FloorScoreId",
+						"commentId": "FloorCommentsId"
+					},
+					{
+						"labelName": "OFFICE",
+						"scoreId": "OfficeScoreId",
+						"commentId": "OfficeCommentsId"
+					},
+					{
+						"labelName": "Check cobwebs",
+						"scoreId": "checkcobwebScoreId",
+						"commentId": "checkcobwebCommentsId"
+					},
+					{
+						"labelName": "Table tops and chairs",
+						"scoreId": "TabletopschairsScoreId",
+						"commentId": "TabletopschairsCommentsId"
+					},
+					{
+						"labelName": "Moniotor and telephone",
+						"scoreId": "MonitorandphoneScoreId",
+						"commentId": "MonitorandphoneCommentsId"
+					},
+					{
+						"labelName": "Cupboards and Shelves",
+						"scoreId": "CupboardsandshelvesScoreId",
+						"commentId": "CupboardsandshelvesCommentsId"
+					},
+					{
+						"labelName": "Corner,ledges and baseboards",
+						"scoreId": "Corner,ledges and baseboardsScoreId",
+						"commentId": "CornerledgeandbaseboardsCommentsId"
+					},
+					{
+						"labelName": "Floors and carpet",
+						"scoreId": "FloorcarpetScoreId",
+						"commentId": "FloorcarpetCommentsId"
+					},
+					{
+						"labelName": "Garbage bins inside and out",
+						"scoreId": "GbinScoreId",
+						"commentId": "GbinCommentsId"
+					},
+					{
+						"labelName": "Glass Partitions and Fingerprints",
+						"scoreId": "GPFScoreId",
+						"commentId": "GPFCommentsId"
+					},
+					{
+						"labelName": "Shredder and Recycle bin",
+						"scoreId": "ShredderScoreId",
+						"commentId": "ShredderCommentsId"
+					},
+					{
+						"labelName": "SwitchPlates and light fixtures",
+						"scoreId": "SPLFScoreId",
+						"commentId": "SPLFCommentsId"
+					},
+					{
+						"labelName": "Inner doors and handles",
+						"scoreId": "InnScoreId",
+						"commentId": "InnCommentsId"
+					},
+					{
+						"labelName": "Replace liners in bins",
+						"scoreId": "ReplaceScoreId",
+						"commentId": "ReplaceCommentsId"
+					},
+					{
+						"labelName": "KITCHENETTE/LUNCH ROOM",
+						"scoreId": "KitchenLunchScoreId",
+						"commentId": "KitchenLunchCommentsId"
+					},
+					{
+						"labelName": "Check cobwebs",
+						"scoreId": "checkScoreId",
+						"commentId": "checkCommentsId"
+					},
+					{
+						"labelName": "Floor",
+						"scoreId": "FloorssScoreId",
+						"commentId": "FloorssCommentsId"
+					},
+					{
+						"labelName": "Baseboard,ledges and corners",
+						"scoreId": "BBScoreId",
+						"commentId": "BBCommentsId"
+					},
+					{
+						"labelName": "CheckAppliances",
+						"scoreId": "CheckApplianceScoreId",
+						"commentId": "checkApplianceCommentsId"
+					},
+					{
+						"labelName": "Under the Equipment",
+						"scoreId": "UnderEqScoreId",
+						"commentId": "UndeEqCommentsId"
+					},
+					{
+						"labelName": "Sinks and taps",
+						"scoreId": "SinksScoreId",
+						"commentId": "SinksCommentsId"
+					},
+					{
+						"labelName": "Garbage bins inside and out",
+						"scoreId": "GBScoreId",
+						"commentId": "GBCommentsId"
+					},
+					{
+						"labelName": "Replaceliners",
+						"scoreId": "ReplacelinersScoreId",
+						"commentId": "ReplacelinersCommentsId"
+					},
+					{
+						"labelName": "RESTROOMS",
+						"scoreId": "RestroomScoreId",
+						"commentId": "RestroomCommentsId"
+					},
+					{
+						"labelName": "Toilet seat,base,inside and outside",
+						"scoreId": "ToiletseatScoreId",
+						"commentId": "ToiletseatCommentsId"
+					},
+					{
+						"labelName": "Toilet tissue,Paper and hand soap",
+						"scoreId": "ToilettissueScoreId",
+						"commentId": "ToilettissueCommentsId"
+					},
+					{
+						"labelName": "Countertop and mirrors",
+						"scoreId": "CounterScoreId",
+						"commentId": "CounterCommentsId"
+					},
+					{
+						"labelName": "Sink,Faucets and Dispenser",
+						"scoreId": "SinkScoreId",
+						"commentId": "sinkCommentsId"
+					},
+					{
+						"labelName": "Partitions and Floors",
+						"scoreId": "PartitionScoreId",
+						"commentId": "PartitionCommentsId"
+					},
+					{
+						"labelName": "Urinals",
+						"scoreId": "UrinalscoreId",
+						"commentId": "UrinalCommentsId"
+					},
+					{
+						"labelName": "Garbage bins inside and out",
+						"scoreId": "GarScoreId",
+						"commentId": "GarCommentsId"
+					},
+					{
+						"labelName": "Air vents and corners",
+						"scoreId": "AirventsScoreId",
+						"commentId": "AirventsCommentsId"
+					},
+					{
+						"labelName": "Walls and Ceilings",
+						"scoreId": "wallScoreId",
+						"commentId": "wallCommentsId"
+					},
+					{
+						"labelName": "SPAREPARTS COUNTER",
+						"scoreId": "SPAREScoreId",
+						"commentId": "SPARECommentsId"
+					},
+					{
+						"labelName": "Counter",
+						"scoreId": "Counter",
+						"commentId": "CounterId"
+					},
+					{
+						"labelName": "Hallway Floors",
+						"scoreId": "HallwayScoreId",
+						"commentId": "HallwayScoreId"
+					},
+					{
+						"labelName": "Cupboards and Shelves",
+						"scoreId": "CupboardsandshelvesScoreId",
+						"commentId": "CupboardsandshelvesCommentsId"
+					},
+					{
+						"labelName": "Corners and ledges",
+						"scoreId": "ClScoreId",
+						"commentId": "ClCommentsId"
+					},
+					{
+						"labelName": "STAIRWELLS",
+						"scoreId": "STAIRScoreId",
+						"commentId": "STAIRCommentsId"
+					},
+					{
+						"labelName": "Steps",
+						"scoreId": "stepsScoreId",
+						"commentId": "stepsCommentsId"
+					},
+					{
+						"labelName": "Handrails",
+						"scoreId": "HandrailsScoreId",
+						"commentId": "HandrailsCommentsId"
+					},
+					{
+						"labelName": "GARAGE AREA",
+						"scoreId": "GARAGEScoreId",
+						"commentId": "GARAGECommentsId"
+					},
+					{
+						"labelName": "Auto Scrub Garage",
+						"scoreId": "AutoScoreId",
+						"commentId": "AutoCommentsId"
+					},
+					{
+						"labelName": "Remove Garbage",
+						"scoreId": "RemoveScoreId",
+						"commentId": "RemoveCommentsId"
+					},
+					{
+						"labelName": "Check Supplies",
+						"scoreId": "CheckSupplyScoreId",
+						"commentId": "CheckSupplyCommentsId"
+					},
+					{
+						"labelName": "Check Equipment ",
+						"scoreId": "CheckEqi",
+						"commentId": "CheckEqiCommentsId"
+					}
+				]
+			}
+		}
+	]
+}
