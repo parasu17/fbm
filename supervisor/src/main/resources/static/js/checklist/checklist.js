@@ -22,24 +22,39 @@ function changeCheckList() {
 	var combo = document.getElementById("clientTypeId");
 	var selIndex = combo.selectedIndex;
 	if(selIndex != -1) {
-		clearTable();
-		populateTable(checkLists.checkList[selIndex]);
+		populateCheckListTable(getCheckListTable(), checkLists.checkList[selIndex]);
 	}
 }
 
-
 // AJAX calls
-function loadPage() {
+function inspectionPage() {
 	  var xhttp = new XMLHttpRequest();
 	  xhttp.onreadystatechange = function() {
 	    if (this.readyState == 4 && this.status == 200) {
 	    	checkLists = JSON.parse(this.responseText);
-	    	populateOptions();
-	    	populateTable(checkLists.checkList[0]);
+	    	createInspectionPage();
 	    }
 	  };
 	  xhttp.open("GET", "conf/checklist_form.json", true);
 	  xhttp.send();
+}
+
+function createInspectionPage() {
+	clearPage();
+
+	var parent = getRoot();
+	
+	parent.appendChild(createClientLabel());
+	
+	var combo = createClientTypeSelect();
+	parent.appendChild(combo);
+	populateOptions(combo);
+	
+	var table = createCheckListTable();
+	parent.appendChild(table);
+	populateCheckListTable(table, checkLists.checkList[0]);
+	
+	parent.appendChild(createCheckListSubmitButton());
 }
 
 function saveCheckList() {
@@ -57,8 +72,7 @@ function saveCheckList() {
 }
 
 //populating UI while loading page
-function populateOptions() {
-	var combo = document.getElementById("clientTypeId");
+function populateOptions(combo) {
 	combo.options = [];
 	var listIndex;
 	var checkListName;
@@ -68,15 +82,38 @@ function populateOptions() {
 	}
 }
 
+function createClientLabel() {
+	var divEle = document.createElement("div");
+	divEle.innerHTML = '<label for="clientTypeId">Client Type</label>';
+	return divEle.firstChild;
+}
+
+function createClientTypeSelect() {
+	var divEle = document.createElement("div");
+	divEle.innerHTML = '<select id="clientTypeId" onchange="changeCheckList()"></select>';
+	return divEle.firstChild;
+}
+
+function createCheckListTable() {
+	var divEle = document.createElement("div"); 
+	divEle.innerHTML = '<table id="checkListTable"></table>';
+	return divEle.firstChild;
+}
+
+function createCheckListSubmitButton() {
+	var divEle = document.createElement("div"); 
+	divEle.innerHTML = '<div class="button"><button type="button" onclick="saveCheckList()">Submit Checklist</button></div>';
+	return divEle.firstChild;
+}
+
 function getCheckListTable() {
 	return document.getElementById("checkListTable");
 }
 
-function populateTable(checkListJson) {
-	var table = getCheckListTable();
-	var rowIndex;
+function populateCheckListTable(table, checkListJson) {
+	table.innerHTML = "";
 	populateHeader(table);
-	for(rowIndex=0;rowIndex < checkListJson.table.rows.length ; rowIndex++) {
+	for(var rowIndex=0;rowIndex < checkListJson.table.rows.length ; rowIndex++) {
 		populateRow(table, checkListJson.table.rows[rowIndex]);
 	}
 	populateFooter(table);
@@ -106,11 +143,6 @@ function populateFooter(table) {
 	var cell3 = row.insertCell(2);
 }
 
-function clearTable() {
-	var elmtTable = getCheckListTable();
-	elmtTable.innerHTML = "";
-}
-
 function populateRow(table, jsonRow) {
 	// Create an empty <tr> element and add it to the 1st position of the table:
 	var row = table.insertRow(-1);
@@ -120,12 +152,12 @@ function populateRow(table, jsonRow) {
 	var cell1 = row.insertCell(0);
 	cell1.innerHTML = '<div class="noWrapClass" id="place_' + rowCount + '_0" >' + jsonRow.labelName + '</div>';
 	var cell2 = row.insertCell(1);
-	cell2.appendChild(getScores('radioScore_' + rowCount + '_1'));
+	cell2.appendChild(createScores('radioScore_' + rowCount + '_1'));
 	var cell3 = row.insertCell(2);
-	cell3.appendChild(getComments('comments_' + rowCount + '_2'));
+	cell3.appendChild(createComments('comments_' + rowCount + '_2'));
 }
 
-function getScores(name) {
+function createScores(name) {
 	var score = '';
 	score = score + '<input id="' + name + '_0" type="radio" name="' + name + '" value="0" onclick="calculateScore()" >0</input> &nbsp; &nbsp; &nbsp; &nbsp;';
 	score = score + '<input id="' + name + '_1" type="radio" name="' + name + '" value="1" onclick="calculateScore()" >1</input> &nbsp; &nbsp; &nbsp; &nbsp;';
@@ -140,7 +172,7 @@ function getScores(name) {
     return radioFragment;
 }
 
-function getComments(name) {
+function createComments(name) {
 	var comment = '';
 	comment = comment + '<input class="checkListTableCommentsCellClass" id="' + name + '" type="text" name="' + name + '" />';
 	

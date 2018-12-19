@@ -4,27 +4,30 @@
 <title>FBM Supervisor Checklist</title>
 
 <link rel="stylesheet" href="css/checklist.css">
-<script type="text/javascript" src="js/checklist/checklist.js"> </script>
+<script type="text/javascript" src="js/common.js"></script>
+<script type="text/javascript" src="js/checklist/checklist.js"></script>
+<script type="text/javascript" src="js/client/clientPage.js"></script>
 
 </head>
 
 
-<body onload="loadPage()" >
+<body>
 
-	<form action="sw" method="post">
+	<table class="pageHeader">
+		<tr>
+			<td><a id="clientsLink" title="View/Add/Edit Clients" href="#"
+				onclick="clientsPage();return false;">Clients</a>
+			
+			<td><a id="inspectionLink" title="Supervisor Inspection" href="#"
+				onclick="inspectionPage();return false;">Supervisor Inspection</a>
 
-		<label for="clientTypeId">Client Type</label> <select
-			id="clientTypeId" onchange="changeCheckList()">
-		</select>
+		</tr>
+	</table>
 
-		<table id="checkListTable">
-		</table>
-		 
-		<div class="button">
-			<button type="button" onclick="saveCheckList()">Submit Checklist</button>
-		</div>
+	<br>
+	<br>
 
-	</form>
+	<div id="fbmData"></div>
 
 </body>
 
