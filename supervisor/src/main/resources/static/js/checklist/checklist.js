@@ -64,7 +64,7 @@ function saveCheckList() {
 	    	alert("Checklist saved successfully.");
 	    }
 	  };
-	  xhttp.open("POST", "/services/saveCheckList", true);
+	  xhttp.open("POST", "/services/inspection/saveCheckList", true);
 	  //xhhtp.setRequestHeader("Accept", "application/json; charset=utf-8");
 	  xhttp.setRequestHeader("Content-Type", "application/json; charset=utf-8");
 	  var body = JSON.stringify(getCheckListData());

@@ -5,11 +5,11 @@ package com.fbm.mgmt.supervisor.dataobjects;
  * @author Parasu17
  *
  */
-public class CheckListEntity {
+public class CheckList {
 
 	private String clientType;
 	private int totalScore;
-	private ScoreEntity[] scores;
+	private Score[] scores;
 
 	public String getClientType() {
 		return clientType;
@@ -17,10 +17,10 @@ public class CheckListEntity {
 	public void setClientType(String clientType) {
 		this.clientType = clientType;
 	}
-	public ScoreEntity[] getScores() {
+	public Score[] getScores() {
 		return scores;
 	}
-	public void setScores(ScoreEntity[] scores) {
+	public void setScores(Score[] scores) {
 		this.scores = scores;
 	}
 	public int getTotalScore() {

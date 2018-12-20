@@ -1,0 +1,63 @@
+<div class="add-client-popup" id="addNewClientForm">
+		<div class="add-client-popup-container same-width-as-parent">
+
+			<table id="addClient_components">
+				<tr>
+					<td><label for="addClient_client_name"><b>Client Name</b></label></td>
+					<td>
+						<div>
+							<input id="addClient_client_name" type="text" placeholder="Enter client name" name="client_name" required>
+						</div>
+					</td>
+					</tr>
+				<tr>
+					<td><label for="addClient_address"><b>Address</b></label></td>
+					<td>
+						<div>
+							<input id="addClient_address" type="text" placeholder="Enter address" name="address">
+						</div>
+					</td>
+					</tr>
+				<tr>
+					<td><label for="addClient_city"><b>City</b></label></td>
+					<td>
+						<div>
+							<input id="addClient_city" type="text" placeholder="Enter city" name="city">
+						</div>
+					</td>
+					</tr>
+				<tr>
+					<td><label for="addClient_province"><b>Province</b></label></td>
+					<td>
+						<div>
+							<input id="addClient_province" type="text" name="province" value="ON">
+						</div>
+					</td>
+					</tr>
+				<tr>
+					<td><label for="addClient_pin"><b>PIN</b></label></td>
+					<td>
+						<div>
+							<input id="addClient_pin" type="text" placeholder="Enter PinCode" name="pin">
+						</div>
+					</td>
+					</tr>
+				<tr>
+					<td><label for="addClient_country"><b>Country</b></label></td>
+					<td>
+						<div>
+							<input id="addClient_country" type="text" name="country" value="Canada">
+						</div>
+					</td>
+					</tr>
+			</table>
+      		
+      		<br>
+
+			<div class="add-client-button-panel">
+				<button type="button" onclick="addClient()">Add Client</button>
+				<button type="button" onclick="removeCustomAlert()">Cancel</button>
+			</div>
+
+		</div>
+</div>

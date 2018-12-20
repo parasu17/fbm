@@ -5,7 +5,7 @@ package com.fbm.mgmt.supervisor.dataobjects;
  * @author Parasu17
  *
  */
-public class ScoreEntity {
+public class Score {
 
 	private String place;
 	private int score;

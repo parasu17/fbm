@@ -5,7 +5,11 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.annotation.ComponentScan;
 
 @SpringBootApplication
-@ComponentScan(basePackages = { "com.fbm.mgmt.supervisor.controllers" } )
+@ComponentScan(basePackages = { 
+		"com.fbm.mgmt.supervisor.controllers", 
+		"com.fbm.mgmt.supervisor.service.impl", 
+		"com.fbm.mgmt.supervisor.dao.impl" 
+		} )
 public class FbmApplication {
 
     public static void main(String[] args) {

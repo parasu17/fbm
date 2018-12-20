@@ -1,0 +1,71 @@
+
+/* The popup form - hidden by default */
+.add-client-popup {
+  display: block;
+  position: fixed;
+  width: 480;
+  margin:0 auto;
+  text-align:center;
+  border: 3px solid f1f1f1; /* #f1f1f1; */
+  z-index: 9;
+}
+
+/* Add styles to the form container */
+.add-client-popup-container {
+  width: 100%;
+  padding: 10px;
+  background-color: white;
+}
+
+.add-client-popup-container table {
+  width: 100%;
+}
+
+.add-client-popup-container input[type=text] {
+  display:inline-block;
+  width: 90%;
+  padding: 5px;
+  margin: 5px 0 5px 0;
+  border: none;
+  background: #f1f1f1;
+}
+
+.add-client-popup-container label {
+  display:inline-block; 
+  width: 90%;
+  padding: 5px;
+  margin: 5px 0 5px 0;
+}
+
+/* When the inputs get focus, do something */
+.add-client-popup-container input[type=text]:focus {
+  background-color: #ddd;
+  outline: none;
+}
+
+.add-client-button-panel {
+  text-align:center;
+}
+
+.add-client-button-panel button {
+  color: white;
+  padding: 16px 20px;
+  border: none;
+  cursor: pointer;
+  width: 30%;
+  margin-bottom:10px;
+  opacity: 0.8;
+  float:center;
+}
+
+.add-client-button-panel button:first-child {
+  background-color: #4CAF50;
+}
+
+.add-client-button-panel button:last-child {
+  background-color: red;
+}
+
+.add-client-button-panel button:hover {
+  opacity: 1;
+}
