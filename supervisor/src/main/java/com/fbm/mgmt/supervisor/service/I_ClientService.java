@@ -3,21 +3,24 @@ package com.fbm.mgmt.supervisor.service;
 import java.util.List;
 
 import com.fbm.mgmt.supervisor.dataobjects.Client;
+import com.fbm.mgmt.supervisor.dataobjects.FbmResponse;
 
 public interface I_ClientService {
 
-	List<Client> getAllClients();
-
-	Client getClientById(int clientId);
-
-	boolean addClient(Client client);
-
-	void updateClient(Client client);
-
-	void deleteClient(int clientId);
+	FbmResponse<List<Client>> getAllClients();
 	
-	void deleteClient(Client client);
+	FbmResponse<List<Client>> getAllClientsFromClientType(int clientTypeId);
 
-	boolean clientExists(String clientName);
+	FbmResponse<Client> getClientById(int clientId);
+
+	FbmResponse<Client> addClient(Client client);
+
+	FbmResponse<Client> updateClient(Client client);
+
+	FbmResponse<Boolean> deleteClient(int clientId);
+	
+	FbmResponse<Boolean> deleteClient(Client client);
+
+	FbmResponse<Boolean> clientExists(String clientName);
 
 }

@@ -83,27 +83,19 @@ function populateOptions(combo) {
 }
 
 function createClientLabel() {
-	var divEle = document.createElement("div");
-	divEle.innerHTML = '<label for="clientTypeId">Client Type</label>';
-	return divEle.firstChild;
+	return createDomElement('<label for="clientTypeId">Client Type</label>');
 }
 
 function createClientTypeSelect() {
-	var divEle = document.createElement("div");
-	divEle.innerHTML = '<select id="clientTypeId" onchange="changeCheckList()"></select>';
-	return divEle.firstChild;
+	return createDomElement('<select id="clientTypeId" onchange="changeCheckList()"></select>');
 }
 
 function createCheckListTable() {
-	var divEle = document.createElement("div"); 
-	divEle.innerHTML = '<table id="checkListTable"></table>';
-	return divEle.firstChild;
+	return createDomElement('<table id="checkListTable"></table>');
 }
 
 function createCheckListSubmitButton() {
-	var divEle = document.createElement("div"); 
-	divEle.innerHTML = '<div class="button"><button type="button" onclick="saveCheckList()">Submit Checklist</button></div>';
-	return divEle.firstChild;
+	return createDomElement('<div class="button"><button type="button" onclick="saveCheckList()">Submit Checklist</button></div>');
 }
 
 function getCheckListTable() {

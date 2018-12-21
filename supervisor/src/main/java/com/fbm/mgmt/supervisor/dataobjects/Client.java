@@ -16,6 +16,7 @@ public class Client {
 
 	private Integer id;
 	private String client_name;
+	private Integer cleaning_type_id;
 	private String address;
 	private String city;
 	private String province;
@@ -63,5 +64,11 @@ public class Client {
 	}
 	public void setCountry(String country) {
 		this.country = country;
+	}
+	public Integer getCleaning_type_id() {
+		return cleaning_type_id;
+	}
+	public void setCleaning_type_id(Integer cleaning_type_id) {
+		this.cleaning_type_id = cleaning_type_id;
 	}
 }

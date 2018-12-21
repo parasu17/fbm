@@ -17,10 +17,19 @@ function createCustomAlert(txt, dataElement) {
     h1 = alertObj.appendChild(d.createElement("h1"));
     h1.appendChild(d.createTextNode(txt));
 
-    alertObj.appendChild(dataElement);
+    if(dataElement) {
+    	alertObj.appendChild(dataElement);
+    } else {
+    	alertObj.appendChild(getOkButton());
+    }
 
     alertObj.style.display = "block";
 
+}
+
+function getOkButton() {
+	var butTxt = '<div class="add-client-button-panel"><button type="button" onclick="removeCustomAlert()">OK</button></div>';
+	return createDomElement(butTxt);
 }
 
 function removeCustomAlert() {

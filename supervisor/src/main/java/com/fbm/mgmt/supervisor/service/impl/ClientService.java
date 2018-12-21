@@ -7,6 +7,7 @@ import org.springframework.stereotype.Service;
 
 import com.fbm.mgmt.supervisor.dao.I_ClientDAO;
 import com.fbm.mgmt.supervisor.dataobjects.Client;
+import com.fbm.mgmt.supervisor.dataobjects.FbmResponse;
 import com.fbm.mgmt.supervisor.service.I_ClientService;
 
 @Service
@@ -16,44 +17,54 @@ public class ClientService implements I_ClientService   {
 	private I_ClientDAO clientDao;
 
 	@Override
-	public List<Client> getAllClients() {
+	public FbmResponse<List<Client>> getAllClients() {
 		return clientDao.getAllClients();
 	}
 
 	@Override
-	public Client getClientById(int clientId) {
+	public FbmResponse<List<Client>> getAllClientsFromClientType(int clientTypeId) {
+		return clientDao.getAllClientsFromClientType(clientTypeId);
+	}
+
+	@Override
+	public FbmResponse<Client> getClientById(int clientId) {
 		return clientDao.getClientById(clientId);
 	}
 
 	@Override
-	public boolean addClient(Client client) {
-		if(clientExists(client.getClient_name())) {
-			return false;
+	public FbmResponse<Client> addClient(Client client) {
+		if(clientExists(client.getClient_name()).isSuccess()) {
+			FbmResponse<Client> res = new FbmResponse<Client>(false, "Client with name '" + client.getClient_name() + "' already exists");
+			return res;
 		}
 
-		clientDao.addClient(client);
+		FbmResponse<Client> res = clientDao.addClient(client);
 
-		return true;
+		return res;
 	}
 
 	@Override
-	public void updateClient(Client client) {
-		clientDao.updateClient(client);
+	public FbmResponse<Client> updateClient(Client client) {
+		FbmResponse<Client> res = clientDao.updateClient(client);
+		return res;
 	}
 
 	@Override
-	public void deleteClient(int clientId) {
-		clientDao.deleteClient(clientId);
+	public FbmResponse<Boolean> deleteClient(int clientId) {
+		FbmResponse<Boolean> res = clientDao.deleteClient(clientId);
+		return res;
 	}
 
 	@Override
-	public void deleteClient(Client client) {
-		clientDao.deleteClient(client);
+	public FbmResponse<Boolean> deleteClient(Client client) {
+		FbmResponse<Boolean> res = clientDao.deleteClient(client);
+		return res;
 	}
 
 	@Override
-	public boolean clientExists(String clientName) {
-		return clientDao.clientExists(clientName);
+	public FbmResponse<Boolean> clientExists(String clientName) {
+		FbmResponse<Boolean> res = clientDao.clientExists(clientName);
+		return res;
 	}
 
 }

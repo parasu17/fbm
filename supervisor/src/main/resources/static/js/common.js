@@ -39,3 +39,7 @@ function createDomElement(str) {
 	divEle.innerHTML = str;
 	return divEle.firstChild;
 }
+
+function showAlert(txt) {
+	alert(txt);
+}

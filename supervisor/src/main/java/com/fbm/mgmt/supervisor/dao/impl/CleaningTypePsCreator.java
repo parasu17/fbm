@@ -10,30 +10,25 @@ import org.springframework.jdbc.core.PreparedStatementCreator;
 import org.springframework.jdbc.support.GeneratedKeyHolder;
 import org.springframework.jdbc.support.KeyHolder;
 
-import com.fbm.mgmt.supervisor.dataobjects.Client;
+import com.fbm.mgmt.supervisor.dataobjects.CleaningType;
 
-public class ClientPsCreator implements PreparedStatementCreator {
+public class CleaningTypePsCreator implements PreparedStatementCreator {
 
-	private static final String ADD_CLIENT = "INSERT INTO clients (client_name, cleaning_type_id, address, city, province, pin, country) values (?, ?, ?, ?, ?, ?, ?)";
+	private static final String ADD_CLEANING_TYPE = "INSERT INTO cleaning_type (name, description) values (?, ?)";
 
-	private Client client;
+	private CleaningType client;
 	private KeyHolder keyHolder;
 	
-	public ClientPsCreator(Client client) {
+	public CleaningTypePsCreator(CleaningType client) {
 		this.client = client;
 		keyHolder = new GeneratedKeyHolder();
 	}
 
 	@Override
 	public PreparedStatement createPreparedStatement(Connection con) throws SQLException {
-		PreparedStatement ps = con.prepareStatement(ADD_CLIENT, Statement.RETURN_GENERATED_KEYS);
-		ps.setString(1, client.getClient_name());
-		ps.setInt(2, client.getCleaning_type_id());
-		ps.setString(3, client.getAddress());
-		ps.setString(4, client.getCity());
-		ps.setString(5, client.getProvince());
-		ps.setString(6, client.getPin());
-		ps.setString(7, client.getCountry());
+		PreparedStatement ps = con.prepareStatement(ADD_CLEANING_TYPE, Statement.RETURN_GENERATED_KEYS);
+		ps.setString(1, client.getName());
+		ps.setString(2, client.getDescription());
 		return ps;
 	}
 

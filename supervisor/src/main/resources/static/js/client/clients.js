@@ -87,11 +87,47 @@ function openAddClientForm() {
 	  var xhttp = new XMLHttpRequest();
 	  xhttp.onreadystatechange = function() {
 	    if (this.readyState == 4 && this.status == 200) {
-	    	createCustomAlert('Add Client', createDomElement(this.responseText));
+	    	prepareClientTypesForAddClientForm('Add Client', createDomElement(this.responseText));
 	    }
 	  };
 	  xhttp.open("GET", "templates/addClient.txt", true);
 	  xhttp.send();
+}
+
+function prepareClientTypesForAddClientForm(title, dataElement) {
+	  var xhttp = new XMLHttpRequest();
+	  xhttp.onreadystatechange = function() {
+	    if (this.readyState == 4 && this.status == 200) {
+	    	var table = dataElement.getElementsByTagName('table')[0];
+	    	var row = table.insertRow(1);
+	    	row.innerHTML = getClientTypeRow(JSON.parse(this.responseText));
+	    	createCustomAlert(title, dataElement);
+	    }
+	  };
+	  xhttp.open("GET", "services/clients/getAllCts", true);
+	  xhttp.send();
+}
+
+function getClientTypeRow(clientTypes) {
+	/*
+	 <select>
+		  <option value="volvo">Volvo</option>
+		  <option value="saab">Saab</option>
+		  <option value="mercedes">Mercedes</option>
+		  <option value="audi">Audi</option>
+	</select>
+	 */
+	if(clientTypes == null || clientTypes.length == 0) {
+		return;
+	}
+
+	var select = '<td><label for="addClient_clientType"><b>Client Type</b></label></td>' +
+					'<td><div><select id="addClient_clientType" name="cleaning_type_id">';
+	for(i in clientTypes) {
+		select = select + '<option value="' + clientTypes[i].id + '">' + clientTypes[i].name + '</option>';
+	}
+	select = select + '</select></div></td>';
+	return select;
 }
 
 function closeAddClientForm() {
@@ -111,8 +147,13 @@ function refreshData() {
 	  var xhttp = new XMLHttpRequest();
 	  xhttp.onreadystatechange = function() {
 	    if (this.readyState == 4 && this.status == 200) {
-	    	clients = JSON.parse(this.responseText);
-	    	tabulator.setData(clients);
+	    	var fbmResponse = JSON.parse(this.responseText);
+	    	if(fbmResponse.success) {
+	    		clients = fbmResponse.responseData;
+		    	tabulator.setData(clients);
+	    	} else {
+	    		showAlert('Could not fetch all clients from server');
+	    	}
 	    }
 	  };
 	  xhttp.open("GET", "services/clients/getAllClients", true);
@@ -123,15 +164,25 @@ function addClient() {
 	var xhttp = new XMLHttpRequest();
 	xhttp.onreadystatechange = function() {
 		if (this.readyState == 4 && this.status == 200) {
-			var client = JSON.parse(this.responseText);
-			// tabulator.setData(clients);
-			tabulator.addRow(client);
+	    	var fbmResponse = JSON.parse(this.responseText);
+	    	if(fbmResponse.success) {
+				var client = fbmResponse.responseData;
+				tabulator.addRow(client);
+				removeCustomAlert();
+				var dataElement = null;
+				showAlert('Successfully added client=' + client.client_name);
+	    	} else {
+	    		var failMsg = (fbmResponse.failureMessage && fbmResponse.failureMessage.length > 0) ? ': ' + fbmResponse.failureMessage : '';
+	    		showAlert('Could not add client. Please check the data' + failMsg);
+	    	}
+		} else if (this.readyState == 4) {
+			showAlert('Could not add client. Please check the data');
 		}
 	};
 	xhttp.open("POST", "services/clients/addClient", true);
 	xhttp.setRequestHeader("Content-Type", "application/json; charset=utf-8");
 	var idList = [
-					'addClient_client_name' , 'addClient_address' , 'addClient_city',
+					'addClient_client_name' , 'addClient_clientType', 'addClient_address' , 'addClient_city',
 					'addClient_province'    , 'addClient_pin'     , 'addClient_country'
 				];
 	var newClient = getNewEntityJson(idList);
@@ -143,9 +194,12 @@ function deleteClients() {
 	var xhttp = new XMLHttpRequest();
 	xhttp.onreadystatechange = function() {
 		if (this.readyState == 4 && this.status == 200) {
-			for(var i in selectedRows) {
-				selectedRows[i].delete();
-			}
+	    	var fbmResponse = JSON.parse(this.responseText);
+	    	if(fbmResponse.success) {
+				for(var i in selectedRows) {
+					selectedRows[i].delete();
+				}
+	    	}
 		}
 	};
 	xhttp.open("POST", "services/clients/deleteClients", true);
