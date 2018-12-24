@@ -1,5 +1,7 @@
 package com.fbm.mgmt.supervisor.service.impl;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -17,6 +19,12 @@ public class InspectionReportService implements I_InspectionReportService {
 	@Override
 	public FbmResponse<Boolean> saveInspectionReport(InspectionReport inspectionReport) {
 		FbmResponse<Boolean> res = inspectionReportDao.saveInspectionReport(inspectionReport);
+		return res;
+	}
+
+	@Override
+	public FbmResponse<List<InspectionReport>> getAllInspectionReports() {
+		FbmResponse<List<InspectionReport>> res = inspectionReportDao.getAllInspectionReports();
 		return res;
 	}
 

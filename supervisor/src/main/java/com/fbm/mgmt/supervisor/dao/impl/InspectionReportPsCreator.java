@@ -30,8 +30,8 @@ public class InspectionReportPsCreator implements PreparedStatementCreator {
 		ps.setInt(1, inspectionReport.getClient_id());
 		ps.setInt(2, inspectionReport.getSupervisor_id());
 		ps.setLong(3, inspectionReport.getDate());
-		ps.setString(4, inspectionReport.getFeedBack());
-		ps.setInt(5, inspectionReport.getTotalScore());
+		ps.setString(4, inspectionReport.getFeedback());
+		ps.setInt(5, inspectionReport.getTotalscore());
 		ps.setInt(6, inspectionReport.getScore_percent());
 		return ps;
 	}

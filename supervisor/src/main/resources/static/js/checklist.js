@@ -238,7 +238,7 @@ function getCheckListData() {
 	private int client_id;
 	private int supervisor_id;
 	private long date;
-	private String feedBack;
+	private String feedback;
 	private int totalScore;
 	private int score_percent;
 	private Score[] scores;
@@ -249,7 +249,7 @@ function getCheckListData() {
 	var start_of_today = new Date();
 	start_of_today.setHours(0,0,0,0);
 	inspectionReport.date = start_of_today.getTime();
-	inspectionReport.feedBack = document.getElementById("feedbackId").value;
+	inspectionReport.feedback = document.getElementById("feedbackId").value;
 	inspectionReport.totalScore = getNumber(document.getElementById("checkListTableFooter").cells[1].innerHTML, 0);
 	inspectionReport.score_percent = getNumber(document.getElementById("checkListTableFooter").cells[2].innerHTML, 0);
 	inspectionReport.scores = [];

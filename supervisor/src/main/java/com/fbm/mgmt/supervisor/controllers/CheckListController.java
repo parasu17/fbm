@@ -1,5 +1,7 @@
 package com.fbm.mgmt.supervisor.controllers;
 
+import java.util.List;
+
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -29,4 +31,10 @@ public class CheckListController {
 		return res;
 	}
 
+	@RequestMapping("/getAllInspectionReports")
+	@ResponseBody
+	public FbmResponse<List<InspectionReport>> getAllInspectionReports() {
+		FbmResponse<List<InspectionReport>> res = inspectionReportService.getAllInspectionReports();
+		return res;
+	}
 }
