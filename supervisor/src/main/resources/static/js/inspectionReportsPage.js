@@ -6,7 +6,9 @@ function inspectionReportsPage() {
 }
 
 function createInspectionReportsPage() {
+	var parent = getRoot();
 	inspectionReportsTabulator = createInspectionReportsTable();
+	parent.appendChild(createInspectionReportDisplayPanel());
 	refreshInspectionReports();
 }
 
@@ -24,7 +26,8 @@ function createInspectionReportsTable() {
 	  	selectable:true,
 	    pagination:"local",
 	    paginationSize:20,
-	  	selectableRangeMode:"click"
+	  	selectableRangeMode:"click",
+	  	rowClick:displayInspectionReport
 	 });
 	 
 	 return table;
@@ -32,6 +35,20 @@ function createInspectionReportsTable() {
 
 function createInspectionReportsTableDomElement() {
 	return createDomElement('<div id="inspection-reports-table"></div>');
+}
+
+function createInspectionReportDisplayPanel() {
+	return createDomElement('<div class="inspection-report-display-panel" id="inspection-report-display-panel"></div>');
+}
+
+function getInspectionReportDisplayPanel() {
+	return document.getElementById('inspection-report-display-panel');
+}
+
+function clearInspectionReportDisplayPanel() {
+	if(getInspectionReportDisplayPanel()) {
+		getInspectionReportDisplayPanel().innerHTML = '';
+	}
 }
 
 function getInspectionReportsTableColumns() {
@@ -76,12 +93,42 @@ function refreshInspectionReports() {
 	  xhttp.send();
 }
 
+function displayInspectionReport(e, row) {
+	clearInspectionReportDisplayPanel();
+
+	var panel = getInspectionReportDisplayPanel();
+	var ir = row.getData();
+	createIrFields(panel, ir);
+}
+
+function createIrFields(panel, ir) {
+	var fields = '<div id="inspection-report-display-summary"><table><tr><td>Client Name</td><td>' + ir.client_name + '</td></tr>';
+	fields += '<tr><td>Supervisor Name</td><td>' + ir.supervisor_name + '</td></tr>';
+	fields += '<tr><td>Date</td><td>' + formatDate(ir.date) + '</td></tr>';
+	fields += '<tr><td>Total Score</td><td>' + ir.totalscore + '</td></tr>';
+	fields += '<tr><td>Score Percent</td><td>' + ir.score_percent + '</td></tr>';
+	fields += '<tr><td>Feedback</td><td>' + ir.feedback + '</td></tr>';
+	fields += '</table></div>';
+	
+	panel.appendChild(createDomElement(fields));
+	
+	fields = '<div id="inspection-report-display-scores"><table><tr><th>Place</th><th>Score</th><th>Comments</th></tr>';
+	for(var i in ir.scores) {
+		fields += '<tr><td>' + ir.scores[i].cleaning_spot_name + '</td><td>' + ir.scores[i].score + '</td><td>' + ir.scores[i].comments + '</td></tr>';
+	}
+	fields += '</table></div>';
+	panel.appendChild(createDomElement(fields));
+}
+
 function formatDate(cell, formatterParams, onRendered) {
-	var d = cell.getValue();
-	if(d == null) {
+	return formatDate(cell.getValue());
+}
+
+function formatDate(dateAsStr) {
+	if(dateAsStr == null) {
 		return '';
 	}
-	var dateAsNum = getNumber(d, 0);
+	var dateAsNum = getNumber(dateAsStr, 0);
 	if(dateAsNum == 0) {
 		return '';
 	}

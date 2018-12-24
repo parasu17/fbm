@@ -22,6 +22,7 @@ public class InspectionReportDAO implements I_InspectionReportDAO {
 	private static final String DELETE_INSPECTION_REPORT = "delete from inspection_report where id = ?";
 	
 	private static final String GET_ALL_INSPECTION_REPORTS = "select ir.id, ir.client_id, ir.supervisor_id, ir.date, ir.feedback, ir.totalscore, ir.score_percent, c.client_name, u.name as supervisor_name from inspection_report ir, clients c, users u where ir.client_id = c.id and ir.supervisor_id = u.id";
+	private static final String GET_ALL_SCORES = "select * from score where inspection_report_id = ?";
 
 	@Autowired
     private JdbcTemplate jdbcTemplate;
@@ -64,6 +65,10 @@ public class InspectionReportDAO implements I_InspectionReportDAO {
 	@Override
 	public FbmResponse<List<InspectionReport>> getAllInspectionReports() {
 		List<InspectionReport> irs = jdbcTemplate.query(GET_ALL_INSPECTION_REPORTS, (rs,num) -> FbmUtil.getObjectFromResultSet(rs, InspectionReport.class));
+		for(InspectionReport ir : irs) {
+			List<Score> scores = jdbcTemplate.query(GET_ALL_SCORES, new Object[] { ir.getId() }, (rs,num) -> FbmUtil.getObjectFromResultSet(rs, Score.class));
+			ir.setScores(scores.toArray(new Score[scores.size()]));
+		}
 		FbmResponse<List<InspectionReport>> res = new FbmResponse<List<InspectionReport>>(true, null, irs);
 		return res;
 	}
