@@ -8,6 +8,7 @@ function changeCheckList(select) {
 	} else {
 		populateCheckListTable(getCheckListTable(), client);
 	}
+	document.getElementById("feedbackId").value = '';
 }
 
 // AJAX calls
@@ -134,6 +135,7 @@ function changeClientList(select) {
 	});
 	clientSelect.innerHTML = options_str;
 	getCheckListTable().innerHTML = '';
+	document.getElementById("feedbackId").value = '';
 }
 
 function createCheckListTable() {
