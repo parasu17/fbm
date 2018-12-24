@@ -1,3 +1,24 @@
+var tabulator;
+var clients;
+
+
+//common utility methods
+function isEmpty(str) {
+	return (!str || 0 === str.length);
+}
+
+function isNumeric(n) {
+	return !isNaN(parseFloat(n)) && isFinite(n);
+}
+
+function getNumber(strNum, defVal) {
+	if(isNumeric(strNum)) {
+		return parseInt(strNum);
+	}
+	return defVal;
+}
+
+
 function clearPage() {
 	var myNode = document.getElementById("fbmData");
 	myNode.innerHTML = '';
@@ -38,6 +59,22 @@ function createDomElement(str) {
 	var divEle = document.createElement('tmpDiv');
 	divEle.innerHTML = str;
 	return divEle.firstChild;
+}
+
+function getAllClientsWithCleaningTypes(clientListCallback) {
+	  var xhttp = new XMLHttpRequest();
+	  xhttp.onreadystatechange = function() {
+	    if (this.readyState == 4 && this.status == 200) {
+	    	var fbmResponse = JSON.parse(this.responseText);
+	    	if(fbmResponse.success) {
+	    		clientListCallback(fbmResponse.responseData);
+	    	} else {
+	    		showAlert('Could not fetch all clients from server');
+	    	}
+	    }
+	  };
+	  xhttp.open("GET", "services/clients/getAllClientsWithCleaningTypes", true);
+	  xhttp.send();
 }
 
 function showAlert(txt) {

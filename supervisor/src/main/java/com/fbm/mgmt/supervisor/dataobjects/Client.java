@@ -22,6 +22,7 @@ public class Client {
 	private String province;
 	private String pin;
 	private String country;
+	private CleaningType cleaningType;
 	
 	public int getId() {
 		return id;
@@ -70,5 +71,11 @@ public class Client {
 	}
 	public void setCleaning_type_id(Integer cleaning_type_id) {
 		this.cleaning_type_id = cleaning_type_id;
+	}
+	public CleaningType getCleaningType() {
+		return cleaningType;
+	}
+	public void setCleaningType(CleaningType cleaningType) {
+		this.cleaningType = cleaningType;
 	}
 }

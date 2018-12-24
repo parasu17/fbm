@@ -33,10 +33,40 @@ public class ClientsController {
 	@Autowired
 	private I_CleaningTypeService cleaningTypeService;
 
+	private CleaningType getCleaningType(Integer cleaningTypeId, List<CleaningType> cleaningTypes) {
+		if(cleaningTypeId == null || cleaningTypes == null || cleaningTypes.size() == 0) {
+			return null;
+		}
+		for(CleaningType ct : cleaningTypes) {
+			if(cleaningTypeId == ct.getId()) {
+				return ct;
+			}
+		}
+		return null;
+	}
+
 	@RequestMapping("/getAllClients")
 	@ResponseBody
 	public FbmResponse<List<Client>> getAllClients() {
 		return clientService.getAllClients();
+	}
+
+	@RequestMapping("/getAllClientsWithCleaningTypes")
+	@ResponseBody
+	public FbmResponse<List<Client>> getAllClientsWithCleaningTypes() {
+		FbmResponse<List<Client>> res = clientService.getAllClients();
+		if(!res.isSuccess()) {
+			return new FbmResponse<List<Client>>(false, "Unable to fetch all clients", null);
+		}
+		List<Client> clients = res.getResponseData();
+		if (clients != null && clients.size() > 0) {
+			List<CleaningType> cleaningTypes = getAllCleaningTypes();
+
+			for (Client client : clients) {
+				client.setCleaningType(getCleaningType(client.getCleaning_type_id(), cleaningTypes));
+			}
+		}
+		return res;
 	}
 
 	@PostMapping("/addClient")

@@ -1,97 +1,148 @@
-var checkLists;
 
-
-// common utility methods
-function isEmpty(str) {
-	return (!str || 0 === str.length);
-}
-
-function isNumeric(n) {
-	return !isNaN(parseFloat(n)) && isFinite(n);
-}
-
-function getNumber(strNum, defVal) {
-	if(isNumeric(strNum)) {
-		return parseInt(strNum);
-	}
-	return defVal;
-}
 
 // logic functions for altering UI
-function changeCheckList() {
-	var combo = document.getElementById("clientTypeId");
-	var selIndex = combo.selectedIndex;
-	if(selIndex != -1) {
-		populateCheckListTable(getCheckListTable(), checkLists.checkList[selIndex]);
+function changeCheckList(select) {
+	var client = getClient(select.value);
+	if(client == null) {
+		getCheckListTable().innerHTML = '';
+	} else {
+		populateCheckListTable(getCheckListTable(), client);
 	}
 }
 
 // AJAX calls
 function inspectionPage() {
-	  var xhttp = new XMLHttpRequest();
-	  xhttp.onreadystatechange = function() {
-	    if (this.readyState == 4 && this.status == 200) {
-	    	checkLists = JSON.parse(this.responseText);
-	    	createInspectionPage();
-	    }
-	  };
-	  xhttp.open("GET", "conf/checklist_form.json", true);
-	  xhttp.send();
+	getAllClientsWithCleaningTypes(createInspectionPage);
 }
 
-function createInspectionPage() {
+function clientTypeExists(clientTypes, clientType) {
+	return clientTypes.some(function(el) {
+		return el.name === clientType;
+	});
+}
+
+function getClient(clientId) {
+	for(var i in clients) {
+		if(clients[i].id == getNumber(clientId, -1)) {
+			return clients[i];
+		}
+	}
+	return null;
+}
+
+function getClientTypes(clientList) {
+	var clientTypes = [];
+	if(!clientList) {
+		return clientTypes;
+	}
+	var cleaningType;
+	for(var i in clientList) {
+		if(clientList[i].cleaningType != null && !clientTypeExists(clientTypes, clientList[i].cleaningType.name)) {
+			clientTypes.push(clientList[i].cleaningType);
+		}
+	}
+	return clientTypes;
+}
+
+function createInspectionPage(clientList) {
 	clearPage();
+	clients = clientList;
 
 	var parent = getRoot();
 	
-	parent.appendChild(createClientLabel());
-	
-	var combo = createClientTypeSelect();
-	parent.appendChild(combo);
-	populateOptions(combo);
-	
-	var table = createCheckListTable();
-	parent.appendChild(table);
-	populateCheckListTable(table, checkLists.checkList[0]);
-	
+	parent.appendChild(createInspectionInputsTable(clientList));
+	parent.appendChild(createCheckListTable());
+	parent.appendChild(createFeedback());
 	parent.appendChild(createCheckListSubmitButton());
 }
 
-function saveCheckList() {
-	  var xhttp = new XMLHttpRequest();
-	  xhttp.onreadystatechange = function() {
-	    if (this.readyState == 4 && this.status == 200) {
-	    	alert("Checklist saved successfully.");
-	    }
-	  };
-	  xhttp.open("POST", "/services/inspection/saveCheckList", true);
-	  //xhhtp.setRequestHeader("Accept", "application/json; charset=utf-8");
-	  xhttp.setRequestHeader("Content-Type", "application/json; charset=utf-8");
-	  var body = JSON.stringify(getCheckListData());
-	  xhttp.send(body);
+function validateCheckListBeforeSubmit() {
+	var client_id = getNumber(document.getElementById("clientId").value, -1);
+	if(client_id == -1) {
+		alert("Please select the client to submit the Inspection Report");
+		return false;
+	}
+	
+	var total_score = getNumber(document.getElementById("checkListTableFooter").cells[1].innerHTML, 0);
+	if(total_score == 0) {
+		alert("None of the tasks are inspected. Please inspect the tasks");
+		return false;
+	}
+	
+	return true;
 }
+
+function saveCheckList() {
+	if (!validateCheckListBeforeSubmit()) {
+		return;
+	}
+	var xhttp = new XMLHttpRequest();
+	xhttp.onreadystatechange = function() {
+		if (this.readyState == 4 && this.status == 200) {
+			alert("Checklist saved successfully.");
+		}
+	};
+	xhttp.open("POST", "services/inspection/saveInspectionReport", true);
+	xhttp.setRequestHeader("Accept", "application/json; charset=utf-8");
+	xhttp.setRequestHeader("Content-Type", "application/json; charset=utf-8");
+	var body = JSON.stringify(getCheckListData());
+	xhttp.send(body);
+}
+
+function createInspectionInputsTable(clientList) {
+	var table = '<table class="inspectionInputsTable" id="inspectionInputsTable">';
+	
+	table += '<tr><td><label for="clientTypeId">Client Type</label></td>';
+	table += '<td>' + createClientTypeSelect(clientList) + '</td></tr>';
+	
+	table += '<tr><td><label for="clientId">Client</label></td>';
+	table += '<td>' + createClientSelect(clientList) + '</td></tr>';
+	table += '</table>';
+	
+	return createDomElement(table);
+}
+
 
 //populating UI while loading page
-function populateOptions(combo) {
-	combo.options = [];
-	var listIndex;
-	var checkListName;
-	for(listIndex = 0;listIndex < checkLists.checkList.length ; listIndex++) {
-		checkListName = checkLists.checkList[listIndex].checklistName;
-		combo.options.add( new Option(checkListName, checkListName));
-	}
+function createClientTypeSelect(clientList) {
+	var clientTypeSelect = '<select id="clientTypeId" onchange="changeClientList(this)">';
+	var options_str = '<option value=""></option>';
+	var clientTypes = getClientTypes(clientList);
+	clientTypes.forEach( function(clientType) {
+	  options_str += '<option value="' + clientType.id + '">' + clientType.name + '</option>';
+	});
+
+	clientTypeSelect = clientTypeSelect + options_str + '</select>';
+	return clientTypeSelect;
 }
 
-function createClientLabel() {
-	return createDomElement('<label for="clientTypeId">Client Type</label>');
+function createClientSelect(clientList) {
+	var clientSelect = '<select id="clientId" onchange="changeCheckList(this)">';
+	var options_str = '<option value=""></option>';
+
+	clientSelect = clientSelect + options_str + '</select>';
+	return clientSelect;
 }
 
-function createClientTypeSelect() {
-	return createDomElement('<select id="clientTypeId" onchange="changeCheckList()"></select>');
+function changeClientList(select) {
+	var clientSelect = document.getElementById('clientId');
+	var options_str = '<option value=""></option>';
+	clients.forEach(function(client) {
+		if(client.cleaning_type_id === getNumber(select.value, -1)) {
+			options_str += '<option value="' + client.id + '">' + client.client_name + '</option>';
+		}
+	});
+	clientSelect.innerHTML = options_str;
+	getCheckListTable().innerHTML = '';
 }
 
 function createCheckListTable() {
 	return createDomElement('<table id="checkListTable"></table>');
+}
+
+function createFeedback() {
+	var feedbackStr = '<div class="feedbackClass">Feedback :<br><textarea rows="4" cols="50" maxlength="950" name="comment" id="feedbackId" placeholder="Enter your feedback here"></textarea></div>';
+	return createDomElement(feedbackStr);
 }
 
 function createCheckListSubmitButton() {
@@ -102,11 +153,13 @@ function getCheckListTable() {
 	return document.getElementById("checkListTable");
 }
 
-function populateCheckListTable(table, checkListJson) {
+function populateCheckListTable(table, client) {
 	table.innerHTML = "";
 	populateHeader(table);
-	for(var rowIndex=0;rowIndex < checkListJson.table.rows.length ; rowIndex++) {
-		populateRow(table, checkListJson.table.rows[rowIndex]);
+	if (client.cleaningType != null && client.cleaningType.cleaningSpots != null) {
+		for (var rowIndex = 0; rowIndex < client.cleaningType.cleaningSpots.length; rowIndex++) {
+			populateRow(table, client.cleaningType.cleaningSpots[rowIndex].spt_name);
+		}
 	}
 	populateFooter(table);
 }
@@ -135,14 +188,14 @@ function populateFooter(table) {
 	var cell3 = row.insertCell(2);
 }
 
-function populateRow(table, jsonRow) {
+function populateRow(table, spotName) {
 	// Create an empty <tr> element and add it to the 1st position of the table:
 	var row = table.insertRow(-1);
 	var rowCount = row.rowIndex;
 
 	// Insert new cells (<td> elements) at the 1st and 2nd position of the "new" <tr> element:
 	var cell1 = row.insertCell(0);
-	cell1.innerHTML = '<div class="noWrapClass" id="place_' + rowCount + '_0" >' + jsonRow.labelName + '</div>';
+	cell1.innerHTML = '<div class="noWrapClass" id="place_' + rowCount + '_0" >' + spotName + '</div>';
 	var cell2 = row.insertCell(1);
 	cell2.appendChild(createScores('radioScore_' + rowCount + '_1'));
 	var cell3 = row.insertCell(2);
@@ -178,24 +231,46 @@ function createComments(name) {
 
 // getting data from checkList table as a JSON object
 function getCheckListData() {
-	var checkList = JSON.parse('{}');
-	checkList['clientType'] = document.getElementById("clientTypeId").value;
-	checkList['scores'] = [];
-	checkList['totalScore'] = getNumber(document.getElementById("checkListTableFooter").cells[1].innerHTML, 0);
-	
+	/*
+	private int id;
+	private int client_id;
+	private int supervisor_id;
+	private long date;
+	private String feedBack;
+	private int totalScore;
+	private int score_percent;
+	private Score[] scores;
+	 */
+	var inspectionReport = {};
+	inspectionReport.client_id = getNumber(document.getElementById("clientId").value, -1);
+	inspectionReport.supervisor_id = 7;
+	var start_of_today = new Date();
+	start_of_today.setHours(0,0,0,0);
+	inspectionReport.date = start_of_today.getTime();
+	inspectionReport.feedBack = document.getElementById("feedbackId").value;
+	inspectionReport.totalScore = getNumber(document.getElementById("checkListTableFooter").cells[1].innerHTML, 0);
+	inspectionReport.score_percent = getNumber(document.getElementById("checkListTableFooter").cells[2].innerHTML, 0);
+	inspectionReport.scores = [];
 	var table = getCheckListTable();
 	for(var i = 1; i < ( table.rows.length - 1); i++) {
-		checkList.scores.push(getRowAsJson(table.rows[i]));
+		inspectionReport.scores.push(getRowAsJson(table.rows[i]));
 	}
-	return checkList;
+	return inspectionReport;
 }
 
 function getRowAsJson(tableRow) {
-	var singleRow = JSON.parse('{}');
+	/*
+	private int id;
+	private int inspection_report_id;
+	private int cleaning_spot_name;
+	private int score;
+	private String comments;
+	 */
+	var singleRow = {};
 	var rowIndex = "_" + tableRow.rowIndex + "_";
-	singleRow['place'] = tableRow.cells[0].innerText.trim();
-	singleRow['score'] = getScore(tableRow);
-	singleRow['comments'] = document.getElementById('comments' + rowIndex + '2').value;
+	singleRow.cleaning_spot_name = tableRow.cells[0].innerText.trim();
+	singleRow.score = getScore(tableRow);
+	singleRow.comments = document.getElementById('comments' + rowIndex + '2').value;
 	return singleRow;
 }
 
@@ -216,12 +291,14 @@ function calculateScore() {
 	var table = getCheckListTable();
 	var totalScore = 0;
 	var rowLength = table.rows.length;
-	for(var i = 0; i < (rowLength - 1); i++) {
+	for(var i = 1; i < (rowLength - 1); i++) {
 		totalScore = totalScore + getScore(table.rows[i]);
 	}
 	
 	var row = table.rows[rowLength - 1];
 	row.cells[1].innerHTML = '' + totalScore;
+	var score_percent = ( totalScore / ( (rowLength - 2) * 3) ) * 100;
+	row.cells[2].innerHTML = '' + score_percent;
 }
 
 

@@ -15,14 +15,14 @@ import com.fbm.mgmt.supervisor.util.FbmUtil;
 @Repository
 public class CleaningSpotDAO implements I_CleaningSpotDAO {
 
-	private static final String SELECT_ALL_CLEANING_SPOTS = "select id, spt_name from cleaning_spots where id in (select cleaning_spot_id from ct_to_cs_map where cleaning_type_id = ?)";
+	private static final String SELECT_ALL_CLEANING_SPOTS = "select id, spt_name from cleaning_spots where id in (select cleaning_spot_id from ct_to_cs_map where cleaning_type_id = ? )";
 
 	@Autowired
     private JdbcTemplate jdbcTemplate;
 
 	@Override
 	public List<CleaningSpot> getAllCleaningSpots(int cleaningTypeId) {
-		List<CleaningSpot> cleaningTypes = jdbcTemplate.query(SELECT_ALL_CLEANING_SPOTS, 
+		List<CleaningSpot> cleaningTypes = jdbcTemplate.query(SELECT_ALL_CLEANING_SPOTS, new Object[] { cleaningTypeId },
 				(rs, num) -> FbmUtil.getObjectFromResultSet(rs, CleaningSpot.class) );
 		return cleaningTypes;
 	}

@@ -1,5 +1,4 @@
-var tabulator;
-var clients;
+
 
 function clientsPage() {
 	clearPage();
@@ -9,7 +8,7 @@ function clientsPage() {
 function createClientsPage() {
 	createButtons();
 	tabulator = createClientsTable();
-	refreshData();
+	getAllClientsWithCleaningTypes(refreshClients);
 }
 
 function createButtons() {
@@ -25,7 +24,7 @@ function createButtons() {
 					'<button type="button" onclick="deleteClients()">Delete Client</button>' +
 				'</td>' +
 				'<td>' +
-					'<button type="button" onclick="refreshData()">Refresh Clients</button>' +
+					'<button type="button" onclick="getAllClientsWithCleaningTypes(refreshClients)">Refresh Clients</button>' +
 				'</td>' +
 			'</tr>' +
 		'</table>';
@@ -133,7 +132,7 @@ function getClientTypeRow(clientTypes) {
 function closeAddClientForm() {
 	document.getElementById("addNewClientForm").style.display = "none";
 }
-	
+
 
 
 ////////////////////////////////////////////////////////////////////////////////////////
@@ -143,21 +142,9 @@ function closeAddClientForm() {
 ////////////////////////////////////////////////////////////////////////////////////////
 
 // data handling
-function refreshData() {
-	  var xhttp = new XMLHttpRequest();
-	  xhttp.onreadystatechange = function() {
-	    if (this.readyState == 4 && this.status == 200) {
-	    	var fbmResponse = JSON.parse(this.responseText);
-	    	if(fbmResponse.success) {
-	    		clients = fbmResponse.responseData;
-		    	tabulator.setData(clients);
-	    	} else {
-	    		showAlert('Could not fetch all clients from server');
-	    	}
-	    }
-	  };
-	  xhttp.open("GET", "services/clients/getAllClients", true);
-	  xhttp.send();
+function refreshClients(clientList) {
+	clients = clientList;
+	tabulator.setData(clients);
 }
 
 function addClient() {
