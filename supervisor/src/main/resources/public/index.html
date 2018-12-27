@@ -11,6 +11,7 @@
 <link rel="stylesheet" href="css/clients.css">
 <link rel="stylesheet" href="css/inspectionReportsPage.css">
 
+<script type="text/javascript" src="js/login.js"></script>
 <script type="text/javascript" src="js/common.js"></script>
 <script type="text/javascript" src="js/popup.js"></script>
 <script type="text/javascript" src="js/checklist.js"></script>
@@ -24,17 +25,37 @@
 
 <body>
 
-	<table class="pageHeader">
-		<tr>
-			<td><a id="clientsLink" title="View/Add/Edit Clients" href="#"
-				onclick="clientsPage();return false;">Clients</a>
-			<td><a id="inspectionLink" title="Supervisor Inspection"
-				href="#" onclick="inspectionPage();return false;">Supervisor
-					Inspection</a>
-			<td><a id="inspectionReportsLink" title="Inspection Reports"
-				href="#" onclick="inspectionReportsPage();return false;">Inspection Reports</a>
-		</tr>
-	</table>
+	<div class="loginPanelClass" id="loginPanelId">
+		<table>
+			<tr>
+				<td>Login Username</td>
+				<td><input type="text" id="username"></input></td>
+			</tr>
+			<tr>
+				<td>Password</td>
+				<td><input type="password" id="password"></input></td>
+			</tr>
+		</table>
+		<div>
+			<input type="button" id="loginId" onclick="login()" value="Login"></input>
+		</div>
+		<div class="loginStatusClass" id="loginStatusId">
+		</div>
+	</div>
+
+	<div class="pageHeaderClass" id="pageHeaderId">
+		<table>
+			<tr>
+				<td><a id="clientsLink" title="View/Add/Edit Clients" href="#"
+					onclick="clientsPage();return false;">Clients</a>
+				<td><a id="inspectionLink" title="Supervisor Inspection"
+					href="#" onclick="inspectionPage();return false;">Supervisor
+						Inspection</a>
+				<td><a id="inspectionReportsLink" title="Inspection Reports"
+					href="#" onclick="inspectionReportsPage();return false;">Inspection Reports</a>
+			</tr>
+		</table>
+	</div>
 
 	<br>
 	<br>

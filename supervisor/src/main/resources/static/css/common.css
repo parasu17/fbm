@@ -5,3 +5,16 @@ body {
 .fbmDataClass {
 	text-align:left;
 }
+
+.pageHeaderClass {
+	display: none;
+}
+
+.loginPanelClass {
+	text-align: left;
+}
+
+.loginStatusClass {
+	display: none;
+	color: red;
+}

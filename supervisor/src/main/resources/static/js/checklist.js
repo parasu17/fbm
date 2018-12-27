@@ -13,6 +13,9 @@ function changeCheckList(select) {
 
 // AJAX calls
 function inspectionPage() {
+	if(loggedInUser == null || (typeof loggedInUser.id === 'undefined')) {
+		return;
+	}
 	getAllClientsWithCleaningTypes(createInspectionPage);
 }
 
@@ -245,12 +248,12 @@ function getCheckListData() {
 	 */
 	var inspectionReport = {};
 	inspectionReport.client_id = getNumber(document.getElementById("clientId").value, -1);
-	inspectionReport.supervisor_id = 7;
+	inspectionReport.supervisor_id = loggedInUser.id;
 	var start_of_today = new Date();
 	start_of_today.setHours(0,0,0,0);
 	inspectionReport.date = start_of_today.getTime();
 	inspectionReport.feedback = document.getElementById("feedbackId").value;
-	inspectionReport.totalScore = getNumber(document.getElementById("checkListTableFooter").cells[1].innerHTML, 0);
+	inspectionReport.totalscore = getNumber(document.getElementById("checkListTableFooter").cells[1].innerHTML, 0);
 	inspectionReport.score_percent = getNumber(document.getElementById("checkListTableFooter").cells[2].innerHTML, 0);
 	inspectionReport.scores = [];
 	var table = getCheckListTable();

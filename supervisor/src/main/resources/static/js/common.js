@@ -77,6 +77,28 @@ function getAllClientsWithCleaningTypes(clientListCallback) {
 	  xhttp.send();
 }
 
+function showElement(element) {
+	if(element == null) {
+		return;
+	}
+	if((typeof element.style === "undefined") || (typeof element.style.display === "undefined")) {
+		return;
+	}
+
+	element.style.display = "block";
+}
+
+function hideElement(element) {
+	if(element == null) {
+		return;
+	}
+	if((typeof element.style === "undefined") || (typeof element.style.display === "undefined")) {
+		return;
+	}
+
+	element.style.display = "none";
+}
+
 function showAlert(txt) {
 	alert(txt);
 }
