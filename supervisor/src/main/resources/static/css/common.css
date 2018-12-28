@@ -7,7 +7,7 @@ body {
 }
 
 .pageHeaderClass {
-	display: none;
+	display: block;
 }
 
 .loginPanelClass {

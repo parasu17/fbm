@@ -8,7 +8,8 @@ import org.springframework.context.annotation.ComponentScan;
 @ComponentScan(basePackages = { 
 		"com.fbm.mgmt.supervisor.controllers", 
 		"com.fbm.mgmt.supervisor.service.impl", 
-		"com.fbm.mgmt.supervisor.dao.impl" 
+		"com.fbm.mgmt.supervisor.dao.impl",
+		"com.fbm.security"
 		} )
 public class FbmApplication {
 
