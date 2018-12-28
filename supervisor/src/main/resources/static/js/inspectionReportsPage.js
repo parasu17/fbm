@@ -121,10 +121,7 @@ function createIrFields(panel, ir) {
 }
 
 function formatDate(cell, formatterParams, onRendered) {
-	return formatDate(cell.getValue());
-}
-
-function formatDate(dateAsStr) {
+	var dateAsStr = cell.getValue();
 	if(dateAsStr == null) {
 		return '';
 	}
