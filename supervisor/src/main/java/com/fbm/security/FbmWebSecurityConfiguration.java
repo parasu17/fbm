@@ -32,19 +32,19 @@ import javax.sql.DataSource;
 @Configuration
 @EnableWebSecurity
 public class FbmWebSecurityConfiguration extends WebSecurityConfigurerAdapter {
-	
-	private static final String SELECT_USER = "select username, password, 'true' as enabled from users where username=?";
-	private static final String SELECT_AUTHORITY = "select username, 'ROLE_USER' as authority from users where username=?";
+    
+    private static final String SELECT_USER = "select username, password, 'true' as enabled from users where username=?";
+    private static final String SELECT_AUTHORITY = "select username, 'ROLE_USER' as authority from users where username=?";
 
-	@Autowired
-	private DataSource dataSource;
+    @Autowired
+    private DataSource dataSource;
 
     @Override
     protected void configure(AuthenticationManagerBuilder auth) throws Exception {
-    	auth.jdbcAuthentication().dataSource(dataSource)
-    		.usersByUsernameQuery(SELECT_USER)
-    		.authoritiesByUsernameQuery(SELECT_AUTHORITY)
-    		.passwordEncoder(passwordEncoder());
+        auth.jdbcAuthentication().dataSource(dataSource)
+            .usersByUsernameQuery(SELECT_USER)
+            .authoritiesByUsernameQuery(SELECT_AUTHORITY)
+            .passwordEncoder(passwordEncoder());
 //        auth.inMemoryAuthentication()
 //            .withUser("parasu").password(passwordEncoder().encode("123")).roles("USER").and()
 //            .withUser("parasuadmin").password(passwordEncoder().encode("123")).roles("ADMIN");
@@ -54,9 +54,29 @@ public class FbmWebSecurityConfiguration extends WebSecurityConfigurerAdapter {
     public PasswordEncoder passwordEncoder() {
         return new BCryptPasswordEncoder();
     }
-   
-	/*
-	
+    
+    @Override
+    protected void configure(HttpSecurity http) throws Exception {
+        http
+            .csrf()
+                .disable()
+            .authorizeRequests()
+                .antMatchers("/services/**", "/js/**", "/dist/**", "/css/**", "/index.html").permitAll()
+                .anyRequest().authenticated()
+                .and()
+            .formLogin()
+                .and()
+            .httpBasic()
+                .and()
+            .logout()
+                .permitAll();
+
+        //http.formLogin().loginPage("/login").loginProcessingUrl("/loginProcess").defaultSuccessUrl("/index.html");
+    }
+
+
+    /*
+
     @Override
     protected void configure(HttpSecurity http) throws Exception {
         http.antMatcher("/**")
@@ -70,7 +90,7 @@ public class FbmWebSecurityConfiguration extends WebSecurityConfigurerAdapter {
                 .formLogin().disable()
                 ;
     }
-    
+
     @Override
     protected void configure(final HttpSecurity http) throws Exception {
         http

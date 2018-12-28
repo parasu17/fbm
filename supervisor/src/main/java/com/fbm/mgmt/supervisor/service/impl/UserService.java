@@ -19,4 +19,9 @@ public class UserService implements I_UserService {
 		return userDao.userExists(simpleLoginCredential);
 	}
 
+	@Override
+	public FbmResponse<User> getUserByName(String username) {
+		return userDao.getUserByName(username);
+	}
+
 }

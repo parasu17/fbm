@@ -99,6 +99,22 @@ function hideElement(element) {
 	element.style.display = "none";
 }
 
+function getLoggedInUser() {
+	var xhttp = new XMLHttpRequest();
+	xhttp.onreadystatechange = function() {
+		if (this.readyState == 4 && this.status == 200) {
+			var fbmResponse = JSON.parse(this.responseText);
+	    	if(fbmResponse.success) {
+				loggedInUser = fbmResponse.responseData;
+				showElement(document.getElementById('pageHeaderId'));
+	    	}
+		}
+	};
+	xhttp.open("POST", "services/user/getLoggedInUser", true);
+	xhttp.setRequestHeader("Accept", "application/json; charset=utf-8");
+	xhttp.send();
+}
+
 function showAlert(txt) {
 	alert(txt);
 }
