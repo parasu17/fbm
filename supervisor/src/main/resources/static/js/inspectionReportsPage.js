@@ -68,7 +68,7 @@ function getInspectionReportsTableColumns() {
   	var columns = [ //Define Table Columns
  	 				{  title:"Client Name"     	, field:"client_name" 		, width:150     },
  	 				{  title:"Supervisor Name"  , field:"supervisor_name"   , align:"left"  },
- 	 				{  title:"Date"     		, field:"date"        		, align: "left", formatter:formatDate },
+ 	 				{  title:"Date"     		, field:"date"        		, align:"left" , formatter:formatDateColumn },
  	 				{  title:"Total Score"		, field:"totalscore"    	, align:"left"  },
  	 				{  title:"Score Percentage" , field:"score_percent"     , align:"left"  },
  	 				{  title:"Feedback"  		, field:"feedback"     		, align:"left"  }
@@ -120,8 +120,11 @@ function createIrFields(panel, ir) {
 	panel.appendChild(createDomElement(fields));
 }
 
-function formatDate(cell, formatterParams, onRendered) {
-	var dateAsStr = cell.getValue();
+function formatDateColumn(cell, formatterParams, onRendered) {
+	return formatDate(cell.getValue());
+}
+
+function formatDate(dateAsStr) {
 	if(dateAsStr == null) {
 		return '';
 	}
