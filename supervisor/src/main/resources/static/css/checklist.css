@@ -48,7 +48,9 @@ table#checkListTable th {
 	white-space:nowrap;
 }
 
-
+.tableHeaderClass {
+	font-weight: bold;
+}
 
 .inspectionInputsTable {
 	width: 400px; 

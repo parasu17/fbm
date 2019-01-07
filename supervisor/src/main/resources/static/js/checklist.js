@@ -163,7 +163,7 @@ function populateCheckListTable(table, client) {
 	populateHeader(table);
 	if (client.cleaningType != null && client.cleaningType.cleaningSpots != null) {
 		for (var rowIndex = 0; rowIndex < client.cleaningType.cleaningSpots.length; rowIndex++) {
-			populateRow(table, client.cleaningType.cleaningSpots[rowIndex].spt_name);
+			populateRow(table, client.cleaningType.cleaningSpots[rowIndex]);
 		}
 	}
 	populateFooter(table);
@@ -193,18 +193,27 @@ function populateFooter(table) {
 	var cell3 = row.insertCell(2);
 }
 
-function populateRow(table, spotName) {
+function populateRow(table, cleaningSpot) {
 	// Create an empty <tr> element and add it to the 1st position of the table:
 	var row = table.insertRow(-1);
 	var rowCount = row.rowIndex;
 
 	// Insert new cells (<td> elements) at the 1st and 2nd position of the "new" <tr> element:
 	var cell1 = row.insertCell(0);
-	cell1.innerHTML = '<div class="noWrapClass" id="place_' + rowCount + '_0" >' + spotName + '</div>';
+	var cellDiv = '<div class="noWrapClass';
+	if(cleaningSpot.heading) {
+		cellDiv += ' tableHeaderClass';
+	}
+	cellDiv += '" id="place_' + rowCount + '_0" >' + cleaningSpot.spt_name + '</div>';
+	cell1.innerHTML = cellDiv;
 	var cell2 = row.insertCell(1);
-	cell2.appendChild(createScores('radioScore_' + rowCount + '_1'));
+	if(! cleaningSpot.heading) {
+		cell2.appendChild(createScores('radioScore_' + rowCount + '_1'));
+	}
 	var cell3 = row.insertCell(2);
-	cell3.appendChild(createComments('comments_' + rowCount + '_2'));
+	if(! cleaningSpot.heading) {
+		cell3.appendChild(createComments('comments_' + rowCount + '_2'));
+	}
 }
 
 function createScores(name) {
@@ -302,10 +311,21 @@ function calculateScore() {
 	
 	var row = table.rows[rowLength - 1];
 	row.cells[1].innerHTML = '' + totalScore;
-	var score_percent = ( totalScore / ( (rowLength - 2) * 3) ) * 100;
+	var score_percent = ( totalScore / ( getValidRowCount(table) * 3) ) * 100;
 	row.cells[2].innerHTML = '' + score_percent;
 }
 
+function getValidRowCount(table) {
+	var row;
+	var rowCount = 0;
+	for(var i = 0; i < table.rows.length; i++) {
+		row = document.getElementById('radioScore_' + i + '_1');
+		if(row) {
+			rowCount += 1;
+		}
+	}
+	return rowCount;
+}
 
 // for logging purposes
 function log(str) {

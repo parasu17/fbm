@@ -4,6 +4,7 @@ public class CleaningSpot {
 
 	private Integer id;
 	private String spt_name;
+	private boolean heading;
 
 	public CleaningSpot(int id, String sptName) {
 		this.id = id;
@@ -25,5 +26,13 @@ public class CleaningSpot {
 	}
 	public void setSpt_name(String spt_name) {
 		this.spt_name = spt_name;
+	}
+
+	public boolean isHeading() {
+		return heading;
+	}
+
+	public void setHeading(boolean heading) {
+		this.heading = heading;
 	}
 }
