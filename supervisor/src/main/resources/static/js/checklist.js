@@ -275,7 +275,7 @@ function getRowAsJson(tableRow) {
 	var rowIndex = "_" + tableRow.rowIndex + "_";
 	singleRow.cleaning_spot_name = tableRow.cells[0].innerText.trim();
 	singleRow.score = getScore(tableRow);
-	singleRow.comments = document.getElementById('comments' + rowIndex + '2').value;
+	singleRow.comments = tableRow.cells[2].innerText.trim();
 	return singleRow;
 }
 
