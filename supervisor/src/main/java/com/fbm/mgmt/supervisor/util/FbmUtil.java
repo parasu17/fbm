@@ -86,4 +86,13 @@ public class FbmUtil {
 		return result;
 	}
 
+	public static Double getDouble(String doubleValue) {
+		Double result = null;
+		try {
+			result = Double.parseDouble(doubleValue);
+		} catch(Exception exp) {
+			
+		}
+		return result;
+	}
 }

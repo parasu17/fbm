@@ -16,7 +16,12 @@ function inspectionPage() {
 	if(loggedInUser == null || (typeof loggedInUser.id === 'undefined')) {
 		return;
 	}
-	getAllClientsWithCleaningTypes(createInspectionPage);
+	getAllClientsWithCleaningTypes(null, null, createInspectionPage);
+	//getGeoLocation(showPosition);
+}
+
+function showPosition(position) {
+	 getAllClientsWithCleaningTypes(position.coords.latitude, position.coords.longitude, createInspectionPage);
 }
 
 function clientTypeExists(clientTypes, clientType) {

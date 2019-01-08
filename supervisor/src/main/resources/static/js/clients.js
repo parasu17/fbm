@@ -8,7 +8,7 @@ function clientsPage() {
 function createClientsPage() {
 	createButtons();
 	tabulator = createClientsTable();
-	getAllClientsWithCleaningTypes(refreshClients);
+	getAllClientsWithCleaningTypes(null, null, refreshClients);
 }
 
 function createButtons() {

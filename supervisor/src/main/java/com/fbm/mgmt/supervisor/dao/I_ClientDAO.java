@@ -9,6 +9,8 @@ public interface I_ClientDAO {
 
 	FbmResponse<List<Client>> getAllClients();
 	
+	FbmResponse<List<Client>> getAllClients(Double lat, Double lng);
+	
 	FbmResponse<List<Client>> getAllClientsFromClientType(int clientTypeId);
 
 	FbmResponse<Client> getClientById(int clientId);

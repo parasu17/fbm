@@ -8,6 +8,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -17,6 +18,7 @@ import com.fbm.mgmt.supervisor.dataobjects.FbmResponse;
 import com.fbm.mgmt.supervisor.service.I_CleaningSpotService;
 import com.fbm.mgmt.supervisor.service.I_CleaningTypeService;
 import com.fbm.mgmt.supervisor.service.I_ClientService;
+import com.fbm.mgmt.supervisor.util.FbmUtil;
 
 @RestController
 @RequestMapping("/services/clients/")
@@ -53,8 +55,18 @@ public class ClientsController {
 
 	@RequestMapping("/getAllClientsWithCleaningTypes")
 	@ResponseBody
-	public FbmResponse<List<Client>> getAllClientsWithCleaningTypes() {
-		FbmResponse<List<Client>> res = clientService.getAllClients();
+	public FbmResponse<List<Client>> getAllClientsWithCleaningTypes(
+			@RequestParam(value = "latitude" , required = false) String latitude, 
+			@RequestParam(value = "longitude", required = false) String longitude) {
+		Double lat = FbmUtil.getDouble(latitude);
+		Double lng = FbmUtil.getDouble(longitude);
+		FbmResponse<List<Client>> res = null;
+		if(lat == null || lng == null) {
+			res = clientService.getAllClients();
+		} else {
+			res = clientService.getAllClients(lat, lng);
+		}
+
 		if(!res.isSuccess()) {
 			return new FbmResponse<List<Client>>(false, "Unable to fetch all clients", null);
 		}

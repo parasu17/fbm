@@ -40,6 +40,8 @@ public class ClientDAO implements I_ClientDAO {
 	private static final String SELECT_CLIENT = "SELECT * FROM clients where id = ?";
 	private static final String SELECT_CLIENT_FROM_CLIENT_TYPE = "select * from clients where cleaning_type_id = ?";
 	private static final String SELECT_ALL_CLIENTS = "SELECT * FROM clients";
+	// query is longitude, latitude
+	private static final String SELECT_ALL_CLIENTS_WITHIN = "select * from clients where ST_Within(lat_lng::geometry, ST_Buffer(ST_MakePoint(?, ?)::geography, 1000)::geometry) = true";
 	
 	@Autowired
     private JdbcTemplate jdbcTemplate;
@@ -108,6 +110,17 @@ public class ClientDAO implements I_ClientDAO {
 		int count = jdbcTemplate.queryForObject(CLIENT_EXISTS, Integer.class, clientName);
 		boolean exists = count > 0;
 		FbmResponse<Boolean> res = new FbmResponse<Boolean>(exists, null, exists);
+		return res;
+	}
+
+	@Override
+	public FbmResponse<List<Client>> getAllClients(Double lat, Double lng) {
+		if(lat == null || lng == null) {
+			return getAllClients();
+		}
+
+		List<Client> clients = jdbcTemplate.query(SELECT_ALL_CLIENTS_WITHIN, new Object[] {lng, lat}, (rs,num) -> FbmUtil.getObjectFromResultSet(rs, Client.class));
+		FbmResponse<List<Client>> res = new FbmResponse<List<Client>>(true, null, clients);
 		return res;
 	}
 

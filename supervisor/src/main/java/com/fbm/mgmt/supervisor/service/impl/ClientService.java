@@ -67,4 +67,9 @@ public class ClientService implements I_ClientService   {
 		return res;
 	}
 
+	@Override
+	public FbmResponse<List<Client>> getAllClients(Double lat, Double lng) {
+		return clientDao.getAllClients(lat, lng);
+	}
+
 }

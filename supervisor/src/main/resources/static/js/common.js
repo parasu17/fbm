@@ -18,6 +18,22 @@ function getNumber(strNum, defVal) {
 	return defVal;
 }
 
+function formatQueryParams( params ){
+	  return "?" + Object
+	        .keys(params)
+	        .map(function(key) {
+	          return key + "=" + encodeURIComponent(params[key])
+	        })
+	        .join("&")
+}
+
+function getGeoLocation(notifyPosition) {
+	if (navigator.geolocation) {
+		navigator.geolocation.getCurrentPosition(notifyPosition);
+	} else {
+		alert("Geolocation is not supported by this browser.");
+	}
+}
 
 function clearPage() {
 	var myNode = document.getElementById("fbmData");
@@ -61,7 +77,7 @@ function createDomElement(str) {
 	return divEle.firstChild;
 }
 
-function getAllClientsWithCleaningTypes(clientListCallback) {
+function getAllClientsWithCleaningTypes(lat, lng, clientListCallback) {
 	  var xhttp = new XMLHttpRequest();
 	  xhttp.onreadystatechange = function() {
 	    if (this.readyState == 4 && this.status == 200) {
@@ -73,7 +89,17 @@ function getAllClientsWithCleaningTypes(clientListCallback) {
 	    	}
 	    }
 	  };
-	  xhttp.open("GET", "services/clients/getAllClientsWithCleaningTypes", true);
+	  
+	  var endPointUrl = "services/clients/getAllClientsWithCleaningTypes"; 
+	  
+	  if(lat && lng) {
+		  var queryParams = {};
+		  queryParams.latitude = lat;
+		  queryParams.longitude = lng;
+		  endPointUrl += formatQueryParams(queryParams);
+	  }
+	  
+	  xhttp.open("GET", endPointUrl, true);
 	  xhttp.send();
 }
 
