@@ -24,7 +24,7 @@ function createButtons() {
 					'<button type="button" onclick="deleteClients()">Delete Client</button>' +
 				'</td>' +
 				'<td>' +
-					'<button type="button" onclick="getAllClientsWithCleaningTypes(refreshClients)">Refresh Clients</button>' +
+					'<button type="button" onclick="getAllClientsWithCleaningTypes(null, null, refreshClients)">Refresh Clients</button>' +
 				'</td>' +
 			'</tr>' +
 		'</table>';

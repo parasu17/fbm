@@ -27,11 +27,40 @@ function formatQueryParams( params ){
 	        .join("&")
 }
 
-function getGeoLocation(notifyPosition) {
+function getGeoLocation(positionCallbackFn, errorCallbackFn) {
 	if (navigator.geolocation) {
-		navigator.geolocation.getCurrentPosition(notifyPosition);
+		var clickedTime = (new Date()).getTime(); //get the current time
+		var geoLocTimeout = 10; //reset the timeout just in case you call it more then once
+        ensurePosition(positionCallbackFn, errorCallbackFn, clickedTime, geoLocTimeout); //call recursive function to get position
+		//navigator.geolocation.getCurrentPosition(showPosition);
 	} else {
-		alert("Geolocation is not supported by this browser.");
+		errorCallbackFn("Geolocation is not supported by this browser.");
+	}
+}
+
+// recursive position function
+function ensurePosition(callback, errorCallback, timestamp, geoLocTimeout) {
+	if (geoLocTimeout < 6000) { // set at what point you want to just give up
+		// call the geolocation function
+		navigator.geolocation.getCurrentPosition(function(position) { // on success
+			// if the timestamp that is returned minus the time that was set
+			// when called is greater then 0 the position is up to date
+			if (position.timestamp - timestamp >= 0) {
+				// GPSTimeout = 10; // reset timeout just in case
+				callback(position); // call the callback function you created
+			} else { // the gps that was returned is not current and needs to be refreshed
+				// GPSTimeout += GPSTimeout; // increase the timeout by itself n*2
+				ensurePosition(callback, errorCallback, timestamp, geoLocTimeout * 2); // call itself to refresh
+			}
+		}, function() { // error: gps failed so we will try again
+			// GPSTimeout += GPSTimeout; // increase the timeout by itself n*2
+			ensurePosition(callback, errorCallback, timestamp, geoLocTimeout * 2);// call itself to try again
+		}, {
+			maximumAge : 0,
+			timeout : geoLocTimeout
+		})
+	} else {
+		errorCallback("Geolocation could not be found in this browser.");
 	}
 }
 

@@ -16,12 +16,17 @@ function inspectionPage() {
 	if(loggedInUser == null || (typeof loggedInUser.id === 'undefined')) {
 		return;
 	}
-	getAllClientsWithCleaningTypes(null, null, createInspectionPage);
-	//getGeoLocation(showPosition);
+	//getAllClientsWithCleaningTypes(null, null, createInspectionPage);
+	getGeoLocation(showGeoBasedClients, showAllClients);
 }
 
-function showPosition(position) {
+function showGeoBasedClients(position) {
 	 getAllClientsWithCleaningTypes(position.coords.latitude, position.coords.longitude, createInspectionPage);
+}
+
+function showAllClients(errorMsg) {
+	alert(errorMsg + " Hence showing all the clients");
+	getAllClientsWithCleaningTypes(null, null, createInspectionPage);
 }
 
 function clientTypeExists(clientTypes, clientType) {
