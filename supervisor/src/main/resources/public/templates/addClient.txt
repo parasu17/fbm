@@ -50,6 +50,22 @@
 						</div>
 					</td>
 					</tr>
+					<tr>
+					<td><label for="addClient_latitude"><b>Latitude</b></label></td>
+					<td>
+						<div>
+							<input id="addClient_latitude" type="text" name="latitude" placeholder="Enter the latitude of this address">
+						</div>
+					</td>
+					</tr>
+					<tr>
+					<td><label for="addClient_longitude"><b>Longitude</b></label></td>
+					<td>
+						<div>
+							<input id="addClient_longitude" type="text" name="longitude" placeholder="Enter the longitude of this address">
+						</div>
+					</td>
+					</tr>
 			</table>
       		
       		<br>

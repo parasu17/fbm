@@ -170,7 +170,7 @@ function addClient() {
 	xhttp.setRequestHeader("Content-Type", "application/json; charset=utf-8");
 	var idList = [
 					'addClient_client_name' , 'addClient_clientType', 'addClient_address' , 'addClient_city',
-					'addClient_province'    , 'addClient_pin'     , 'addClient_country'
+					'addClient_province'    , 'addClient_pin'     , 'addClient_country', 'addClient_latitude', 'addClient_longitude'
 				];
 	var newClient = getNewEntityJson(idList);
 	xhttp.send(JSON.stringify(newClient));

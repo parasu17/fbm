@@ -22,6 +22,8 @@ public class Client {
 	private String province;
 	private String pin;
 	private String country;
+	private Double latitude;
+	private Double longitude;
 	private CleaningType cleaningType;
 	
 	public int getId() {
@@ -77,5 +79,17 @@ public class Client {
 	}
 	public void setCleaningType(CleaningType cleaningType) {
 		this.cleaningType = cleaningType;
+	}
+	public Double getLatitude() {
+		return latitude;
+	}
+	public void setLatitude(Double latitude) {
+		this.latitude = latitude;
+	}
+	public Double getLongitude() {
+		return longitude;
+	}
+	public void setLongitude(Double longitude) {
+		this.longitude = longitude;
 	}
 }

@@ -14,11 +14,15 @@ import com.fbm.mgmt.supervisor.dataobjects.Client;
 
 public class ClientPsCreator implements PreparedStatementCreator {
 
-	private static final String ADD_CLIENT = "INSERT INTO clients (client_name, cleaning_type_id, address, city, province, pin, country) values (?, ?, ?, ?, ?, ?, ?)";
+	private static final String ADD_CLIENT = "INSERT INTO clients (client_name, cleaning_type_id, address, city, province, pin, country, lat_lng) values (?, ?, ?, ?, ?, ?, ?, ST_GeomFromText(?, 4326))";
 
 	private Client client;
 	private KeyHolder keyHolder;
-	
+
+	private String getLatLng(Client client) {
+		return "POINT(" + client.getLongitude() + " " + client.getLatitude() + ")";
+	}
+
 	public ClientPsCreator(Client client) {
 		this.client = client;
 		keyHolder = new GeneratedKeyHolder();
@@ -34,6 +38,7 @@ public class ClientPsCreator implements PreparedStatementCreator {
 		ps.setString(5, client.getProvince());
 		ps.setString(6, client.getPin());
 		ps.setString(7, client.getCountry());
+		ps.setString(8, getLatLng(client));
 		return ps;
 	}
 
