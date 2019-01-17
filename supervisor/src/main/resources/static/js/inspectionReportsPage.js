@@ -94,6 +94,10 @@ function refreshInspectionReports() {
 }
 
 function displayInspectionReport(e, row) {
+	clearPage();
+	var parent = getRoot();
+	parent.appendChild(createInspectionReportDisplayPanel());
+
 	clearInspectionReportDisplayPanel();
 
 	var panel = getInspectionReportDisplayPanel();
