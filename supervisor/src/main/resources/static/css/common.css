@@ -15,6 +15,16 @@ body {
 
 .pageHeaderClass {
 	display: none;
+	margin: 35px 0 5px 20px;
+}
+
+.pageHeaderClass tr {
+	line-height: 40px;
+}
+
+a {
+	font-size: 40px;
+	margin: 0 25px 0 25px;
 }
 
 .loginPanelClass {
